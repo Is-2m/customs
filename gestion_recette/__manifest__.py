@@ -5,11 +5,14 @@
         ====================
         Gestion des payments, des engaments, des situations budgetaires 
     """,
-    'depends': ['base','web'],
+    'depends': ['base', 'web'],
 
-    'data':[
-        'views/home.xml',
+    'data': [
         'security/ir.model.access.csv',
+        'views/template.xml',
+        'views/menu.xml',
+        'views/ligne_recette_view.xml',
+        'views/ordre_recette_view.xml',
         'reports/test_report_action.xml',
         'reports/or_template.xml'
     ],

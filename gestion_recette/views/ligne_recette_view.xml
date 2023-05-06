@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_css" name="project assets">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/gestion_recette/static/src/css/main.css"/>
+            </xpath>
+        </template>
+
+        <record id="nature_recette_tree_view" model="ir.ui.view">
+            <field name="name">or_ligne_recette_tree</field>
+            <field name="model">or.ligne.recette</field>
+            <field name="arch" type="xml">
+
+                <tree string="Les ordres de recette" class="costum-class">
+                    <!--                    <field name="code" class="bg-primary"/>-->
+                    <!--                    <field name="label" class="bg-primary"/>-->
+                    <field name="code"/>
+                    <field name="label"/>
+                </tree>
+                </field>
+        </record>
+
+
+        <record id="nature_recette_form_view" model="ir.ui.view">
+            <field name="name">or_ligne_recette_form</field>
+            <field name="model">or.ligne.recette</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="code"/>
+                        <field name="label"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="nature_recette_model_action" model="ir.actions.act_window">
+            <field name="name">Gestion Nature Des Recettes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">or.ligne.recette</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Creér une nouvelle ligne de recette !
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="nature_recette_menu"
+                  name="Nature Recette"
+                  action="nature_recette_model_action"
+                  parent="gestion_fn_menu"
+                  sequence="0"/>
+    </data>
+</odoo>

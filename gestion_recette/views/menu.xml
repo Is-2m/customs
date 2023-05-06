@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="gestion_fn_menu"
+              name="Gestion Financiere"
+              sequence="0"
+    />
+</odoo>
+
+        <!--              web_icon=""-->

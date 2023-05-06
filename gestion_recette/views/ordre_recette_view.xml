@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ordre_recette_tree_view" model="ir.ui.view">
+        <field name="name">or_ordre_recette_tree</field>
+        <field name="model">or.ordre.recette</field>
+        <field name="arch" type="xml">
+            <tree string="Les ordres de recette">
+                <field name="ordonnateur_id"/>
+                <field name="debiteur_id"/>
+                <field name="nature"/>
+                <field name="montant_chiffre"/>
+                <field name="montant_lettre"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordre_recette_form_view" model="ir.ui.view">
+        <field name="name">or_ordre_recette_form</field>
+        <field name="model">or.ordre.recette</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="ordonnateur_id"/>
+                        <field name="debiteur_id"/>
+                    </group>
+                    <group>
+                        <field name="nature"/>
+                        <field name="montant_chiffre"/>
+                    </group>
+                    <div>
+                        <field name="total_montant_chiffre"/>
+                    </div>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="ordre_recette_model_action" model="ir.actions.act_window">
+        <field name="name">Gestion Recette</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">or.ordre.recette</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Creér un nouveau ordre de recette !
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="gestion_fn_menu"
+              sequence="0"/>
+</odoo>
