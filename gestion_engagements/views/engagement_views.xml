@@ -1,0 +1,45 @@
+<odoo>
+        <!-- Tree view for engagements -->
+        <record id="view_engagement_tree" model="ir.ui.view">
+            <field name="name">engagement.tree</field>
+            <field name="model">gestion_engagements.engagement</field>
+            <field name="arch" type="xml">
+                <tree string="Engagements">
+<!--                    <field name="id"/>-->
+<!--                    <field name="display_name"/>-->
+                    <field name="montant"/>
+                    <field name="date_engagement"/>
+                    <field name="ligne_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form view for engagements -->
+        <record id="view_engagement_form" model="ir.ui.view">
+            <field name="name">engagement.form</field>
+            <field name="model">gestion_engagements.engagement</field>
+            <field name="arch" type="xml">
+                <form string="Engagement">
+                    <sheet>
+                        <group>
+                            <field name="montant"/>
+                            <field name="date_engagement"/>
+                            <field name="ligne_id"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for engagements -->
+        <record id="action_engagement" model="ir.actions.act_window">
+            <field name="name">Engagements</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">gestion_engagements.engagement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu item for engagements -->
+<!--        <menuitem id="menu_engagement" name="Engagements"/>-->
+<!--        <menuitem id="menu_engagement_tree" parent="menu_engagement" name="Engagements" action="action_engagement"/>-->
+</odoo>

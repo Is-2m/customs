@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+gestion_financiere.access_article,access_article,gestion_financiere.model_gestion_financiere_article,base.group_user,1,1,1,1
+gestion_financiere.access_paragraph,access_paragraph,gestion_financiere.model_gestion_financiere_paragraph,base.group_user,1,1,1,1
+gestion_financiere.access_ligne,access_ligne,gestion_financiere.model_gestion_financiere_ligne,base.group_user,1,1,1,1
+

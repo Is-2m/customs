@@ -1,0 +1,38 @@
+<odoo>
+         <record id="paragraph_action" model="ir.actions.act_window">
+           <field name="name">Paragraph</field>
+           <field name="res_model">paragraph</field>
+           <field name="view_mode">tree,form</field>
+       </record>
+    <data>
+
+        <record id="paragraph_form_view" model="ir.ui.view">
+            <field name="name">paragraph.form</field>
+            <field name="model">paragraph</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="create_ligne" string="Create Ligne"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="code"/>
+                            <field name="label"/>
+                            <field name="article_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Lignes">
+                                <field name="ligne_ids" mode="tree">
+                                    <tree>
+                                        <field name="code"/>
+                                        <field name="label"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

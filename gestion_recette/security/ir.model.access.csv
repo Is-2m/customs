@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+gestion_recette.access_or_ordre_recette,access_or_ordre_recette,gestion_recette.model_or_ordre_recette,base.group_user,1,1,1,1
+gestion_recette.access_or_debiteur,access_or_debiteur,gestion_recette.model_or_debiteur,base.group_user,1,1,1,1
+gestion_recette.access_or_piece_jointe,access_or_piece_jointe,gestion_recette.model_or_piece_jointe,base.group_user,1,1,1,1
+gestion_recette.access_or_ordonnateur,access_or_ordonnateur,gestion_recette.model_or_ordonnateur,base.group_user,1,1,1,1
+gestion_recette.access_or_ligne_recette,access_or_ligne_recette,gestion_recette.model_or_ligne_recette,base.group_user,1,1,1,1

@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<odoo>
+
+ <menuitem id="gestion_engagements_menu_root" name="Gestion Engagements" />
+    <menuitem id="options_menu" name="Options" parent="gestion_engagements_menu_root" />
+    <menuitem id="engagement_menu_action" name="Engagements" parent="options_menu" action="action_engagement" />
+<!--    <menuitem id="paragraphe_menu_action" name="Paragraphes" parent="options_menu" action="paragraph_action" />-->
+<!--    <menuitem id="ligne_menu_action" name="Lignes" parent="options_menu" action="ligne_action" />-->
+
+</odoo>
