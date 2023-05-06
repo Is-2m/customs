@@ -113,7 +113,11 @@
                                             style="font-weight: bold; border: 2px black solid"
                                             colspan="2"
                                     >
+<<<<<<< HEAD:gestion_recette/reports/order_recette_report.xml
                                         <span t-field="doc.montant_lettre"/>
+=======
+
+>>>>>>> 470d30a (first commit in this unholy branch):gestion_recette/reports/or_template.xml
                                     </td>
                                     <td style="font-weight: bold; border: 2px black solid">
                                         <span t-field="doc.montant_chiffre"/></td>
