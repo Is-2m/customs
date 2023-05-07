@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <menuitem id="gestion_fn_menu"
-              name="Gestion Financiere"
+              name="Gestion Recette"
+              sequence="0"
+    />
+    <menuitem id="options_menu"
+              name="Options"
+              parent="gestion_fn_menu"
               sequence="0"
     />
 </odoo>
 
-        <!--              web_icon=""-->

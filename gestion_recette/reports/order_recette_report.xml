@@ -58,10 +58,11 @@
                                         A
                                     </td>
                                     <td style="width: 30%; border: 2px black solid">
-                                        Ecoles Nationale des Sciences Appliquées de Fès
+                                        <span t-field="doc.ordonnateur_id"/>
                                     </td>
                                     <td style="font-weight: bold; width: 60%; border: 2px black solid">
-                                        PRESIDENCE DE L'UNIVERSITE SIDI MOHAMED BEN ABDELLAH DE FES
+
+                                        <span t-field="doc.debiteur_id"/>
                                     </td>
                                 </tr>
 
@@ -85,12 +86,13 @@
                                     </td>
                                 </tr>
                             </table>
-                            <table width="100%" style="min-height: 40px">
+                            <table width="100%" style=" height: 60px">
                                 <tr>
                                     <td style="vertical-align: text-top; padding: 0px; width: 30%">
                                         Explication detaillee:
                                     </td>
-                                    <td style="text-align: center; font-weight: bold; width: 70%">
+                                    <td valign="middle" class="text-center align-center"
+                                        style="text-align: center; font-weight: bold; width: 70%;">
                                         1ERE TRANCHE DE LA SUBVENTION D'EXPLOITATION 2020
                                     </td>
                                 </tr>
@@ -111,12 +113,13 @@
                                             style="font-weight: bold; border: 2px black solid"
                                             colspan="2"
                                     >
-                                        #NAME?
+                                        <span t-field="doc.montant_lettre"/>
                                     </td>
-                                    <td style="font-weight: bold; border: 2px black solid">500,000.00</td>
+                                    <td style="font-weight: bold; border: 2px black solid">
+                                        <span t-field="doc.montant_chiffre"/></td>
                                 </tr>
                             </table>
-                            <table width="100%" style="min-height: 60px">
+                            <table width="100%" style="height: 60px">
                                 <tr>
                                     <td style="vertical-align: text-top; padding: 0px; width: 30%">
                                         Pièces jointes :
@@ -127,8 +130,13 @@
                                 </tr>
                             </table>
                             <table
+                                    cellpadding="10"
                                     width="100%"
-                                    style="border-collapse: collapse; border: 2px black solid"
+                                    style="
+        text-align: center;
+        border-collapse: collapse;
+        border: 2px black solid;
+      "
                             >
                                 <tr align="center">
                                     <th
@@ -141,73 +149,46 @@
                                     >
                                         B
                                     </th>
-                                    <td style="width: 90%">IMPUTATIONS COMPTABLES</td>
+                                    <td colspan="5" style="width: 90%">IMPUTATIONS COMPTABLES</td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 20%">Budgétaire</td>
-                                    <td rowspan="5">
-                                        <table
-                                                width="100%"
-                                                style="border-collapse: collapse; min-height: 80px"
-                                        >
-                                            <tr align="center">
-                                                <td style="border: 2px black solid; width: 43%" colspan="2">
-                                                    Aux debits
-                                                </td>
-                                                <td style="
-                  border: 2px black solid;
-                  width: 5%;
-                  background-color: yellow;
-                "
-                                                ></td>
-                                                <td style="border: 2px black solid; width: 43%" colspan="2">
-                                                    Aux credits
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="border: 2px black solid">N COMPTES</td>
-                                                <td style="border: 2px black solid">Montants</td>
-                                                <td
-                                                        style="border: 2px black solid; background-color: yellow"
-                                                ></td>
-                                                <td style="border: 2px black solid">N COMPTES</td>
-                                                <td style="border: 2px black solid">Montants</td>
-                                            </tr>
-                                            <tr style="height: 100px">
-                                                <td style="border: 2px black solid">
-                                                    Subvention d'exploitation 2020 <br/>
-                                                    30/31
-                                                </td>
-                                                <td style="border: 2px black solid">500000</td>
-                                                <td
-                                                        style="border: 2px black solid; background-color: yellow"
-                                                ></td>
-                                                <td style="border: 2px black solid"></td>
-                                                <td style="border: 2px black solid"></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="border: 2px black solid">42172</td>
-                                                <td style="border: 2px black solid">500000</td>
-                                                <td
-                                                        style="border: 2px black solid; background-color: yellow"
-                                                ></td>
-                                                <td style="border: 2px black solid">42172</td>
-                                                <td style="border: 2px black solid"></td>
-                                            </tr>
-                                        </table>
+                                    <td></td>
+                                    <td style="width: 43%; border: 2px black solid" colspan="2">
+                                        Aux debits
+                                    </td>
+                                    <td
+                                            style="width: 10%; border: 2px black solid; background-color: yellow"
+                                    ></td>
+                                    <td style="width: 43%; border: 2px black solid" colspan="2">
+                                        Aux credits
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 20px"></td>
+                                    <td>Budgetaire</td>
+
+                                    <td style="border: 2px black solid">N° Comptes</td>
+                                    <td style="border: 2px black solid">Montant</td>
+                                    <td style="background-color: yellow"></td>
+                                    <td style="border: 2px black solid">N° Comptes</td>
+                                    <td style="border: 2px black solid">Montant</td>
+                                </tr>
+                                <tr style="height: 100px">
+                                    <td></td>
+
+                                    <td style="border: 2px black solid"><span t-field="doc.nature_id"/></td>
+                                    <td style="border: 2px black solid"><span t-field="doc. montant_chiffre"/></td>
+                                    <td style="background-color: yellow"></td>
+                                    <td style="border: 2px black solid"></td>
+                                    <td style="border: 2px black solid"></td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 20%"></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20%"></td>
-                                </tr>
-                                <tr>
-                                    <td style="height: 20%">Générale</td>
+                                    <td>Generale</td>
+
+                                    <td style="border: 2px black solid">2345678</td>
+                                    <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
+                                    <td style="background-color: yellow"></td>
+                                    <td style="border: 2px black solid">2345678</td>
+                                    <td style="border: 2px black solid"></td>
                                 </tr>
                             </table>
                             <table width="100%">

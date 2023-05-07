@@ -8,7 +8,7 @@ class ordre_recette(models.Model):
 
     ordonnateur_id = fields.Many2one('or.ordonnateur', string="Ordonnateur ID", required=True)
     debiteur_id = fields.Many2one('or.debiteur', string="Debiteur ID", required=True)
-    nature = fields.Many2one('or.ligne.recette', 'id', required=True)
+    nature_id = fields.Many2one('or.ligne.recette', 'Nature Recette', required=True)
     facturation = fields.Char(string="Facturation n")
     marche = fields.Char(string="Marche n")
     contrat = fields.Char(string="Contract n")
@@ -34,7 +34,7 @@ class ordre_recette(models.Model):
         for rec in self:
             montant_chiffre = rec.montant_chiffre
             if montant_chiffre == 0:
-                rec.montant_lettre = "zéro"
+                rec.montant_lettre = "zéro DH".upper()
             else:
                 # Convert the float to an integer to get rid of the decimal point
                 integer_part = int(montant_chiffre)
@@ -43,9 +43,9 @@ class ordre_recette(models.Model):
                 # Add the word for the currency (euros) and the decimal part, if there is one
                 decimal_part = int(round((montant_chiffre - integer_part) * 100))
                 if decimal_part == 0:
-                    rec.montant_lettre = f"{words}"
+                    rec.montant_lettre = f"{words} DH".upper()
                 else:
-                    rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes"
+                    rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
     # action in model :
     # def my_action(self):

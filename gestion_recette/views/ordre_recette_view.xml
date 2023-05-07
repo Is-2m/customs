@@ -5,9 +5,9 @@
         <field name="model">or.ordre.recette</field>
         <field name="arch" type="xml">
             <tree string="Les ordres de recette">
+                <field  name="nature_id"/>
                 <field name="ordonnateur_id"/>
                 <field name="debiteur_id"/>
-                <field name="nature"/>
                 <field name="montant_chiffre"/>
                 <field name="montant_lettre"/>
             </tree>
@@ -25,7 +25,7 @@
                         <field name="debiteur_id"/>
                     </group>
                     <group>
-                        <field name="nature"/>
+                        <field name="nature_id"/>
                         <field name="montant_chiffre"/>
                     </group>
                     <div>
@@ -37,6 +37,7 @@
     </record>
 
     <record id="ordre_recette_model_action" model="ir.actions.act_window">
+
         <field name="name">Gestion Recette</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">or.ordre.recette</field>
@@ -48,6 +49,6 @@
         </field>
     </record>
 
-    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="gestion_fn_menu"
+    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
               sequence="0"/>
 </odoo>

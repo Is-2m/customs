@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <template id="assets_css" name="project assets">
-            <xpath expr="." position="inside">
-                <link rel="stylesheet" href="/gestion_recette/static/src/css/main.css"/>
-            </xpath>
-        </template>
+<!--        <template id="assets_css" name="project assets">-->
+<!--            <xpath expr="." position="inside">-->
+<!--                <link rel="stylesheet" href="/gestion_recette/static/src/css/main.css"/>-->
+<!--            </xpath>-->
+<!--        </template>-->
 
         <record id="nature_recette_tree_view" model="ir.ui.view">
             <field name="name">or_ligne_recette_tree</field>
@@ -51,7 +51,7 @@
         <menuitem id="nature_recette_menu"
                   name="Nature Recette"
                   action="nature_recette_model_action"
-                  parent="gestion_fn_menu"
-                  sequence="0"/>
+                  parent="options_menu"
+                  sequence="1"/>
     </data>
 </odoo>

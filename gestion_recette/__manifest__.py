@@ -14,7 +14,7 @@
         'views/ligne_recette_view.xml',
         'views/ordre_recette_view.xml',
         'reports/test_report_action.xml',
-        'reports/or_template.xml'
+        'reports/order_recette_report.xml'
     ],
 
     'installable': True,
