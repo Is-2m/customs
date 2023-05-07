@@ -5,7 +5,7 @@
         <field name="model">or.ordre.recette</field>
         <field name="arch" type="xml">
             <tree string="Les ordres de recette">
-                <field  name="nature_id"/>
+                <field name="nature_id"/>
                 <field name="ordonnateur_id"/>
                 <field name="debiteur_id"/>
                 <field name="montant_chiffre"/>
