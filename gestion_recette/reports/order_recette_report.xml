@@ -68,7 +68,7 @@
 
                                 <tr>
                                     <td colspan="3">
-                                        <table id="tab2" width="100%">
+                                        <table width="100%" style="height: 80px;">
                                             <tr>
                                                 <td rowspan="3" valign="top">Nature de la recette</td>
                                                 <td>Facturation n°</td>
@@ -91,9 +91,13 @@
                                     <td style="vertical-align: text-top; padding: 0px; width: 30%">
                                         Explication detaillee:
                                     </td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
                                     <td valign="middle" class="text-center align-center"
-                                        style="text-align: center; font-weight: bold; width: 70%;">
-                                        1ERE TRANCHE DE LA SUBVENTION D'EXPLOITATION 2020
+                                        style="text-align: center;padding-top: 5px; font-weight: bold; width: 70%;">
+                                        <span t-field="doc.description"/>
                                     </td>
                                 </tr>
                             </table>
@@ -113,11 +117,7 @@
                                             style="font-weight: bold; border: 2px black solid"
                                             colspan="2"
                                     >
-<<<<<<< HEAD:gestion_recette/reports/order_recette_report.xml
                                         <span t-field="doc.montant_lettre"/>
-=======
-
->>>>>>> 470d30a (first commit in this unholy branch):gestion_recette/reports/or_template.xml
                                     </td>
                                     <td style="font-weight: bold; border: 2px black solid">
                                         <span t-field="doc.montant_chiffre"/></td>
@@ -125,10 +125,14 @@
                             </table>
                             <table width="100%" style="height: 60px">
                                 <tr>
-                                    <td style="vertical-align: text-top; padding: 0px; width: 30%">
+                                    <td style="vertical-align: text-top; padding: 0; width: 30%">
                                         Pièces jointes :
                                     </td>
-                                    <td style="text-align: center; font-weight: bold; width: 70%">
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td style="text-align: center; font-weight: bold; width: 70%;">
                                         - Relevé du Trésor
                                     </td>
                                 </tr>
@@ -153,7 +157,7 @@
                                     >
                                         B
                                     </th>
-                                    <td colspan="5" style="width: 90%">IMPUTATIONS COMPTABLES</td>
+                                    <td colspan="5" style="width: 90%;">IMPUTATIONS COMPTABLES</td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -161,7 +165,7 @@
                                         Aux debits
                                     </td>
                                     <td
-                                            style="width: 10%; border: 2px black solid; background-color: yellow"
+                                            style="width: 10%; background-color: #ffbf00"
                                     ></td>
                                     <td style="width: 43%; border: 2px black solid" colspan="2">
                                         Aux credits
@@ -172,7 +176,7 @@
 
                                     <td style="border: 2px black solid">N° Comptes</td>
                                     <td style="border: 2px black solid">Montant</td>
-                                    <td style="background-color: yellow"></td>
+                                    <td style="background-color: #ffbf00"></td>
                                     <td style="border: 2px black solid">N° Comptes</td>
                                     <td style="border: 2px black solid">Montant</td>
                                 </tr>
@@ -181,7 +185,7 @@
 
                                     <td style="border: 2px black solid"><span t-field="doc.nature_id"/></td>
                                     <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
-                                    <td style="background-color: yellow"></td>
+                                    <td style="background-color: #ffbf00"></td>
                                     <td style="border: 2px black solid"></td>
                                     <td style="border: 2px black solid"></td>
                                 </tr>
@@ -190,7 +194,7 @@
 
                                     <td style="border: 2px black solid">2345678</td>
                                     <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
-                                    <td style="background-color: yellow"></td>
+                                    <td style="background-color: #ffbf00"></td>
                                     <td style="border: 2px black solid">2345678</td>
                                     <td style="border: 2px black solid"></td>
                                 </tr>
@@ -207,7 +211,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table width="40%" style="padding: 2px; border-collapse: collapse">
+                                        <table width="40%" style="padding: 5px; border-collapse: collapse">
                                             <tr>
                                                 <th style="width: 40px; border: 1px black solid">Date</th>
                                                 <td style="width: 40px; border: 1px black solid"></td>

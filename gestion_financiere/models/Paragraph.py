@@ -2,7 +2,8 @@ from odoo import models,fields
 
 class Paragraph(models.Model):
     _name = 'gestion_financiere.paragraph'
-    _description = 'Paragraph Description :3'
+    _description = 'Paragraph Description'
+    _rec_name = 'label'
 
     id = fields.Integer(primary_key=True)
     code = fields.Char(required=True, index=True, unique=True)

@@ -13,7 +13,7 @@
         'views/menu.xml',
         'views/ligne_recette_view.xml',
         'views/ordre_recette_view.xml',
-        'reports/test_report_action.xml',
+        'reports/report_action.xml',
         'reports/order_recette_report.xml'
     ],
 

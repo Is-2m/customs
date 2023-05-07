@@ -10,6 +10,7 @@ class ordre_recette(models.Model):
     nature_id = fields.Many2one('or.ligne.recette', 'Nature Recette', required=True)
     debiteur_id = fields.Many2one('or.debiteur', string="Debiteur ID", required=True)
     facturation = fields.Char(string="Facturation n")
+    description = fields.Char(string="Description")
     marche = fields.Char(string="Marche n")
     contrat = fields.Char(string="Contract n")
     decision = fields.Char(string="Decision n")
@@ -21,7 +22,7 @@ class ordre_recette(models.Model):
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
-    piece_jointe_ids = fields.One2many('or.piece_jointe', 'recette_id', string="piece jointes")
+    # piece_jointe_ids = fields.Char(string="")
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
 
     @api.depends('montant_chiffre')

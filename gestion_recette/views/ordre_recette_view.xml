@@ -28,9 +28,12 @@
                         <field name="nature_id"/>
                         <field name="montant_chiffre"/>
                     </group>
-                    <div>
-                        <field name="total_montant_chiffre"/>
-                    </div>
+                    <group>
+                        <field name="description"/>
+                        <field name="type"/>
+                        <!--                        <field name="total_montant_chiffre"/>-->
+
+                    </group>
                 </group>
             </form>
         </field>
