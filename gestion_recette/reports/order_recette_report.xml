@@ -176,7 +176,7 @@
                                     <td></td>
 
                                     <td style="border: 2px black solid"><span t-field="doc.nature_id"/></td>
-                                    <td style="border: 2px black solid"><span t-field="doc. montant_chiffre"/></td>
+                                    <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
                                     <td style="background-color: yellow"></td>
                                     <td style="border: 2px black solid"></td>
                                     <td style="border: 2px black solid"></td>

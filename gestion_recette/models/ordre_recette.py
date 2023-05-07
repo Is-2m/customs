@@ -7,8 +7,8 @@ class ordre_recette(models.Model):
     _description = "Ordre Recette Enregistrement"
 
     ordonnateur_id = fields.Many2one('or.ordonnateur', string="Ordonnateur ID", required=True)
-    debiteur_id = fields.Many2one('or.debiteur', string="Debiteur ID", required=True)
     nature_id = fields.Many2one('or.ligne.recette', 'Nature Recette', required=True)
+    debiteur_id = fields.Many2one('or.debiteur', string="Debiteur ID", required=True)
     facturation = fields.Char(string="Facturation n")
     marche = fields.Char(string="Marche n")
     contrat = fields.Char(string="Contract n")
