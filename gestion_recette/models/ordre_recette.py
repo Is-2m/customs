@@ -16,7 +16,6 @@ class ordre_recette(models.Model):
     decision = fields.Char(string="Decision n")
     ac_banque = fields.Char(string="A.C Bangue n")
     convention = fields.Char(string="Convention n")
-    explication = fields.Text(string="Explication")
     montant_chiffre = fields.Float(string="Montant Chiffre", required=True)
     montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre")
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),

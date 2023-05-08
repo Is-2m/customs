@@ -17,31 +17,49 @@
     <record id="ordre_recette_form_view" model="ir.ui.view">
         <field name="name">or_ordre_recette_form</field>
         <field name="model">or.ordre.recette</field>
-        <field name="arch" type="xml">
-            <form>
-                <group>
-                    <group>
-                        <field name="ordonnateur_id"/>
-                        <field name="debiteur_id"/>
-                    </group>
-                    <group>
-                        <field name="nature_id"/>
-                        <field name="montant_chiffre"/>
-                    </group>
-                    <group>
-                        <field name="description"/>
-                        <field name="type"/>
-                        <!--                        <field name="total_montant_chiffre"/>-->
-
-                    </group>
-                </group>
-            </form>
+        <field name="arch" type="xml"><form>
+    <group>
+        <group col="2">
+            <field name="ordonnateur_id"/>
+            <field name="debiteur_id"/>
+        </group>
+        <separator/>
+        <group>
+            <field name="nature_id"/>
+            <field name="type"/>
+        </group>
+        <separator/>
+        <group>
+            <field name="facturation"/>
+            <field name="marche"/>
+            <field name="contrat"/>
+            <field name="decision"/>
+            <field name="ac_banque"/>
+            <field name="convention"/>
+        </group>
+        <separator/>
+        <group>
+            <field name="description"/>
+        </group>
+        <separator/>
+        <groupe>
+            <div style="display: flex; gap: 10rem;">
+                <label for="montant_chiffre">Montant Chiffre</label>
+                <field name="montant_chiffre"/>
+            </div>
+            <div style="display: flex; gap: 10rem;">
+                <label for="montant_lettre">Montant en Lettres</label>
+                <field name="montant_lettre" readonly="True"/>
+            </div>
+        </groupe>
+    </group>
+</form>
         </field>
     </record>
 
     <record id="ordre_recette_model_action" model="ir.actions.act_window">
 
-        <field name="name">Gestion Recette</field>
+        <field name="name">Gestion Ordre Recette</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">or.ordre.recette</field>
         <field name="view_mode">tree,form</field>

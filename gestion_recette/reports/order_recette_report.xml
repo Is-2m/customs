@@ -109,7 +109,7 @@
                                     </td>
                                     <td valign="middle" class="text-center align-center"
                                         style="text-align: center; font-weight: bold; width: 70%;">
-                                        <span t-field="doc.explication"/>
+                                        <span t-field="doc.description"/>
                                     </td>
                                 </tr>
                             </table>

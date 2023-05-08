@@ -35,7 +35,7 @@
             </field>
         </record>
         <record id="compte_model_action" model="ir.actions.act_window">
-            <field name="name">Gestion Ordonnateur</field>
+            <field name="name">Gestion Compte</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">or.compte</field>
             <field name="view_mode">tree,form</field>
