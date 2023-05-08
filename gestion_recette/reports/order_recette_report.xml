@@ -2,6 +2,9 @@
     <data>
         <template id="custom_layout">
             <div class="header">
+                <xpath expr="." position="inside">
+                    <link href="/gestion_recette/static/src/css/report.css" rel="stylesheet"/>
+                </xpath>
                 <div class="text-center" style="border-bottom: 3px solid black;">
                     <img src="/gestion_recette/static/report/header.png" alt="image is not loading ..."
                          height="153" width="1300"
@@ -26,12 +29,12 @@
                 <t t-foreach="docs" t-as="doc">
                     <t t-call="gestion_recette.custom_layout">
                         <div class="page">
-                            <table style="width: 100%; border-collapse: collapse; border-spacing: 0px">
+                            <table style="width: 100%; border-collapse: collapse; border-spacing: 0px; margin-top: 0.5rem;">
                                 <tr>
                                     <td style="width: 45%"></td>
-                                    <td
-                                            style="width: 25%; border: 2px black solid; border-bottom: none"
-                                    ><span t-field="doc.ordonnateur_id"/></td>
+                                    <td style="width: 25%; border: 2px black solid; border-bottom: none">
+<!--                                        <span t-field="doc.ordonnateur_id"/>-->
+                                    </td>
                                     <td><i>(1)</i></td>
                                     <td style="width: 15%; font-weight: bold" align="right">/2020</td>
                                 </tr>
@@ -43,44 +46,51 @@
                                     border-collapse: collapse;
                                     border-spacing: 0px; ">
                                 <tr style="vertical-align: center;height: 50px">
-                                    <td style="border: 2px black solid"></td>
-                                    <td style="border: 2px black solid">
+                                    <td style="border: 2px black solid;text-align: center"></td>
+                                    <td style="border: 2px black solid;border-inline: none; text-align: center;">
                                         Service Ordonnateur ou sous ordonnateur
                                     </td>
-                                    <td style="border: 2px black solid">
+                                    <td style="border: 2px black solid;border-inline: none; text-align: center;">
                                         Nom ou raison sociale du débiteur et adresse complète :
                                     </td>
                                 </tr>
                                 <tr>
                                     <td align="center"
-                                        style="font-weight: bold; width: 10%; border: 2px black solid"
-                                    >
+                                        style="font-weight: bold; width: 10%; border: 2px black solid">
                                         A
                                     </td>
-                                    <td style="width: 30%; border: 2px black solid">
+                                    <td style="width: 30%; border: 2px black solid;text-align: center;">
                                         <span t-field="doc.ordonnateur_id"/>
                                     </td>
-                                    <td style="font-weight: bold; width: 60%; border: 2px black solid">
-
+                                    <td style="font-weight: bold; width: 60%; border: 2px black solid;text-align: center;">
                                         <span t-field="doc.debiteur_id"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td colspan="3">
-                                        <table width="100%" style="height: 80px;">
+                                        <table id="tab2" width="100%">
                                             <tr>
-                                                <td rowspan="3" valign="top">Nature de la recette</td>
-                                                <td>Facturation n°</td>
-                                                <td>Décision n°</td>
+                                                <td rowspan="3" valign="top">Nature de la recette <br/> <span
+                                                        t-field="doc.nature_id"/></td>
+                                                <td>Facturation n°
+                                                    <span t-field="doc.facturation"/>
+                                                </td>
+                                                <td>Décision n°
+                                                    <span t-field="doc.decision"/>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Marché n°</td>
-                                                <td>A.C. Banque n°</td>
+                                                <td>Marché n°
+                                                    <span t-field="doc.marche"/></td>
+                                                <td>A.C. Banque n°
+                                                    <span t-field="doc.ac_banque"/></td>
                                             </tr>
                                             <tr>
-                                                <td>Contrat n°</td>
-                                                <td>Convention n°</td>
+                                                <td>Contrat n°
+                                                    <span t-field="doc.contrat"/></td>
+                                                <td>Convention n°
+                                                    <span t-field="doc.convention"/></td>
                                             </tr>
                                         </table>
                                     </td>
@@ -88,76 +98,68 @@
                             </table>
                             <table width="100%" style=" height: 60px">
                                 <tr>
-                                    <td style="vertical-align: text-top; padding: 0px; width: 30%">
+                                    <td style="vertical-align: text-top; padding: 0; width: 30%">
                                         Explication detaillee:
                                     </td>
-                                    <td></td>
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td></td>
+                                    <td>
+                                    </td>
                                     <td valign="middle" class="text-center align-center"
-                                        style="text-align: center;padding-top: 5px; font-weight: bold; width: 70%;">
-                                        <span t-field="doc.description"/>
+                                        style="text-align: center; font-weight: bold; width: 70%;">
+                                        <span t-field="doc.explication"/>
                                     </td>
                                 </tr>
                             </table>
-                            <table
-                                    style="border: 2px black solid; border-collapse: collapse"
-                                    width="100%"
-                            >
+                            <table style="border: 2px black solid; border-collapse: collapse"
+                                   width="100%">
                                 <tr>
                                     <td style="padding: 4px">Arrêté à la somme de :</td>
                                     <td>Montant de la recette</td>
-                                    <td>DHs</td>
+                                    <td style="margin-left: auto">DHs</td>
                                 </tr>
                                 <tr align="center">
-                                    <td
-                                            min-height="50px"
-                                            height="50px"
-                                            style="font-weight: bold; border: 2px black solid"
-                                            colspan="2"
-                                    >
+                                    <td min-height="50px"
+                                        height="50px"
+                                        style="font-weight: bold; border: 2px black solid"
+                                        colspan="2">
                                         <span t-field="doc.montant_lettre"/>
                                     </td>
                                     <td style="font-weight: bold; border: 2px black solid">
                                         <span t-field="doc.montant_chiffre"/></td>
                                 </tr>
                             </table>
-                            <table width="100%" style="height: 60px">
+                            <table width="100%" style="height: 3rem">
                                 <tr>
-                                    <td style="vertical-align: text-top; padding: 0; width: 30%">
+                                    <td style="vertical-align: text-top; padding: 0px; width: 30%">
                                         Pièces jointes :
                                     </td>
-                                    <td></td>
+                                    <td>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td></td>
-                                    <td style="text-align: center; font-weight: bold; width: 70%;">
+                                    <td>
+                                    </td>
+                                    <td style="text-align: center; font-weight: bold; width: 70%">
                                         - Relevé du Trésor
                                     </td>
                                 </tr>
                             </table>
-                            <table
-                                    cellpadding="10"
-                                    width="100%"
-                                    style="
-        text-align: center;
-        border-collapse: collapse;
-        border: 2px black solid;
-      "
-                            >
+                            <table cellpadding="10"
+                                   width="100%"
+                                   style="text-align: center;
+                                    border-collapse: collapse;
+                                    border: 2px black solid;">
                                 <tr align="center">
-                                    <th
-                                            style="
-            width: 10%;
-            height: 50px;
-            font-weight: bold;
-            border: 2px black solid;
-          "
-                                    >
+                                    <th style=" width: 10%;
+                                    height: 50px;
+                                    font-weight: bold;
+                                    border: 2px black solid;">
                                         B
                                     </th>
-                                    <td colspan="5" style="width: 90%;">IMPUTATIONS COMPTABLES</td>
+                                    <td colspan="5" style="width: 90%">IMPUTATIONS COMPTABLES</td>
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -183,20 +185,55 @@
                                 <tr style="height: 100px">
                                     <td></td>
 
-                                    <td style="border: 2px black solid"><span t-field="doc.nature_id"/></td>
-                                    <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='debits'">
+                                            <span t-field="doc.type"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 2px black solid">
+
+                                        <t t-if="doc.type_compte=='debits'">
+                                            <span t-field="doc.montant_chiffre"/>
+                                        </t>
+                                    </td>
                                     <td style="background-color: #ffbf00"></td>
-                                    <td style="border: 2px black solid"></td>
-                                    <td style="border: 2px black solid"></td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='credits'">
+                                            <span t-field="doc.type"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='credits'">
+                                            <span t-field="doc.montant_chiffre"/>
+                                        </t>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Generale</td>
 
-                                    <td style="border: 2px black solid">2345678</td>
-                                    <td style="border: 2px black solid"><span t-field="doc.montant_chiffre"/></td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='debits'">
+                                            <span t-field="doc.num_compte"/>
+                                        </t>
+
+                                    </td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='debits'">
+                                            <span t-field="doc.montant_chiffre"/>
+                                        </t>
+                                    </td>
                                     <td style="background-color: #ffbf00"></td>
-                                    <td style="border: 2px black solid">2345678</td>
-                                    <td style="border: 2px black solid"></td>
+                                    <td style="border: 2px black solid">
+                                        <t t-if="doc.type_compte=='credits'">
+                                            <span t-field="doc.num_compte"/>
+                                        </t>
+                                    </td>
+                                    <td style="border: 2px black solid">
+
+                                        <t t-if="doc.type_compte=='credits'">
+                                            <span t-field="doc.montant_chiffre"/>
+                                        </t>
+                                    </td>
                                 </tr>
                             </table>
                             <table width="100%">
@@ -211,7 +248,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <table width="40%" style="padding: 5px; border-collapse: collapse">
+                                        <table width="40%" style="padding: 2px; border-collapse: collapse">
                                             <tr>
                                                 <th style="width: 40px; border: 1px black solid">Date</th>
                                                 <td style="width: 40px; border: 1px black solid"></td>

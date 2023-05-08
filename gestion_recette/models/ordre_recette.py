@@ -24,6 +24,9 @@ class ordre_recette(models.Model):
                             required=True)
     # piece_jointe_ids = fields.Char(string="")
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
+    num_compte = fields.Char(string='Numero Compte', compute='_get_num_compte', store=False)
+    type_compte = fields.Char(string='Type Compte', compute='_get_type_compte', store=False)
+
 
     @api.depends('montant_chiffre')
     def _compute_total_montant_chiffre(self):
@@ -48,20 +51,18 @@ class ordre_recette(models.Model):
                 else:
                     rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
-    # action in model :
-    # def my_action(self):
-    #     # Implement the action here
-    #     return {
-    #         'type': 'ir.actions.act_window',
-    #         'name': 'ligne_recette_view.xml',
-    #         'res_model': 'or.ordre.recette',
-    #         'view_mode': 'form',
-    #     }
 
-    # name = fields.Char('Plan Name', required=True)
-    # sequence = fields.Integer('Sequence', default=10)
+    @api.depends('ordonnateur_id.comptes.num_compte')
+    def _get_num_compte(self):
+        for ordre_recette in self:
+            ordre_recette.num_compte = ordre_recette.ordonnateur_id.comptes.num_compte if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
 
-    # how to create constraints on some columns of the table
-    _sql_constraints = [
+    @api.depends('ordonnateur_id.comptes.type')
+    def _get_type_compte(self):
+        for ordre_recette in self:
+            ordre_recette.type_compte = ordre_recette.ordonnateur_id.comptes.type if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
+
+
+_sql_constraints = [
         ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
     ]
