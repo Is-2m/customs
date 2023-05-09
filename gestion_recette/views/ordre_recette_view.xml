@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="ordre_recette_tree_view" model="ir.ui.view">
+        <field name="name">or_ordre_recette_tree</field>
+        <field name="model">or.ordre.recette</field>
+        <field name="arch" type="xml">
+            <tree string="Les ordres de recette">
+                <field name="nature_id"/>
+                <field name="compte_id"/>
+                <field name="debiteur_id"/>
+                <field name="montant_chiffre"/>
+                <field name="montant_lettre"/>
+                <field name="piece_jointe_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ordre_recette_form_view" model="ir.ui.view">
+        <field name="name">or_ordre_recette_form</field>
+        <field name="model">or.ordre.recette</field>
+        <field name="arch" type="xml"><form>
+            <group>
+                <group col="2">
+                    <field name="debiteur_id"/>
+                    <field name="compte_id"/>
+                </group>
+                <separator/>
+                <group>
+                    <field name="nature_id"/>
+                    <field name="type"/>
+                </group>
+                <separator/>
+                <group>
+                    <field name="facturation"/>
+                    <field name="marche"/>
+                    <field name="contrat"/>
+                    <field name="decision"/>
+                    <field name="ac_banque"/>
+                    <field name="convention"/>
+                </group>
+                <separator/>
+                <group>
+                    <field name="description"/>
+                </group>
+                <separator/>
+                <groupe>
+                    <div style="display: flex; gap: 10rem;">
+                        <label for="montant_chiffre">Montant Chiffre</label>
+                        <field name="montant_chiffre"/>
+                    </div>
+                    <div style="display: flex; gap: 10rem;">
+                        <label for="montant_lettre">Montant en Lettres</label>
+                        <field name="montant_lettre" readonly="True"/>
+                    </div>
+                </groupe>
+
+                <notebook>
+                    <page string="Pieces Jointes">
+                        <field name="piece_jointe_ids" mode="tree">
+                            <tree>
+                                <field name="name"/>
+                                <field name="file_data"/>
+                            </tree>
+
+                        </field>
+                    </page>
+                </notebook>
+            </group>
+        </form>
+        </field>
+    </record>
+
+    <record id="ordre_recette_model_action" model="ir.actions.act_window">
+
+        <field name="name">Gestion Ordre Recette</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">or.ordre.recette</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Creér un nouveau ordre de recette !
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
+              sequence="0"/>
+</odoo>

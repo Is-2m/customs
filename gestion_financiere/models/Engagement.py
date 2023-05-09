@@ -1,7 +1,6 @@
 from odoo import models, fields
-from odoo.addons.gestion_financiere.models import Ligne
 class Engagement(models.Model):
-    _name = 'gestion_engagements.engagement'
+    _name = 'gestion_financiere.engagement'
 
     montant = fields.Float(string='Montant')
     date_engagement = fields.Date(string='Date Engagement')

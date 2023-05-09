@@ -2,10 +2,15 @@
 <odoo>
 
     <menuitem id="gestion_article_menu_root" name="Gestion Financiere"/>
-    <menuitem id="options_menu" name="Options" parent="gestion_article_menu_root"/>
-    <menuitem id="article_menu_action" name="Articles" parent="options_menu" action="action_article"/>
-    <menuitem id="paragraphe_menu_action" name="Paragraphes" parent="options_menu" action="paragraph_action"/>
-    <menuitem id="ligne_menu_action" name="Lignes" parent="options_menu" action="ligne_action"/>
+    <menuitem id="gestion_ligne_menu" name="Gestion Lignes" parent="gestion_article_menu_root" sequence="0"/>
+    <menuitem id="gestion_payment_menu" name="Gestion Payments" parent="gestion_article_menu_root" sequence="1"/>
+
+    <menuitem id="ligne_menu_action" name="Lignes" parent="gestion_ligne_menu" action="ligne_action" sequence="0"/>
+    <menuitem id="paragraphe_menu_action" name="Paragraphes" parent="gestion_ligne_menu" action="paragraph_action" sequence="1"/>
+    <menuitem id="article_menu_action" name="Articles" parent="gestion_ligne_menu" action="action_article" sequence="2"/>
+
+    <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement" sequence="1"/>
+
 
     <!--  <data>-->
     <!--    <menuitem id="gestion_article_menu_root" name="Gestion Financiere" />-->

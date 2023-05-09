@@ -1,16 +1,16 @@
 from odoo import models, fields,api
-from odoo.addons.gestion_engagements.models import Engagement
 
 
 class Ligne(models.Model):
     _name = 'gestion_financiere.ligne'
-    _description = 'Ligne Description XD'
+    _description = 'Ligne Description'
+    _rec_name = 'label'
 
     id = fields.Integer(primary_key=True)
     code = fields.Char(required=True, index=True, unique=True)
     label = fields.Char(required=True)
     paragraph_id = fields.Many2one('gestion_financiere.paragraph', string='Paragraph', ondelete='cascade')
-    # engagement_ids=fields.One2many("gestion_engagements.engagement","ligne_id",string="Engagements")
+    engagement_ids=fields.One2many("gestion_financiere.engagement","ligne_id",string="Engagements")
 
 
     article_code = fields.Char(string='Article Code', compute='_get_article_code', store=False)

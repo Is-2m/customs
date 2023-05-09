@@ -1,3 +1,8 @@
+
+
+
+
+
 {
     'name': "Gestion Recette",
     'description': """
@@ -5,13 +10,23 @@
         ====================
         Gestion des payments, des engaments, des situations budgetaires 
     """,
-    'depends': ['base','web'],
-
-    'data':[
-        'views/home.xml',
+    'depends': ['base', 'web'],
+    'assets': {
+        'web.report_assets_pdf': [
+            'gestion_recette/static/src/css/report.css'
+        ]
+    },
+    'data': [
         'security/ir.model.access.csv',
-        'reports/test_report_action.xml',
-        'reports/or_template.xml'
+        'views/template.xml',
+        'views/ligne_recette_view.xml',
+        'views/ordre_recette_view.xml',
+        'views/compte_view.xml',
+        'views/debiteur_view.xml',
+        # 'views/ordonnateur_view.xml',
+        'views/menu.xml',
+        'reports/report_action.xml',
+        'reports/order_recette_report.xml'
     ],
 
     'installable': True,

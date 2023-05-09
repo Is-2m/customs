@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_comptes_form">
+            <field name="name">or_compte_form</field>
+            <field name="model">or.compte</field>
+            <field name="arch" type="xml">
+                <form string="Comptes">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="num_compte"/>
+                                <field name="name"/>
+                                <field name="type"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_comptes_tree">
+            <field name="name">or_compte_tree</field>
+            <field name="model">or.compte</field>
+            <field name="arch" type="xml">
+                <tree string="Compte">
+                    <field name="num_compte"/>
+                    <field name="name"/>
+                    <field name="type"/>
+                </tree>
+            </field>
+        </record>
+        <record id="compte_model_action" model="ir.actions.act_window">
+            <field name="name">Gestion Compte</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">or.compte</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Creér une nouvelle ligne de recette !
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="compte_menu"
+                  name="Compte"
+                  action="compte_model_action"
+                  parent="options_menu"
+                  sequence="4"/>
+    </data>
+</odoo>
