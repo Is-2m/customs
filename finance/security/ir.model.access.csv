@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+finance.access_finance_ordre_recette,access_finance_ordre_recette,finance.model_finance_ordre_recette,base.group_user,1,1,1,1
+finance.access_finance_debiteur,access_finance_debiteur,finance.model_finance_debiteur,base.group_user,1,1,1,1
+finance.access_finance_piece_jointe,access_finance_piece_jointe,finance.model_finance_piece_jointe,base.group_user,1,1,1,1
+finance.access_finance_ligne_recette,access_finance_ligne_recette,finance.model_finance_ligne_recette,base.group_user,1,1,1,1
+finance.access_finance_compte,access_finance_compte,finance.model_finance_compte,base.group_user,1,1,1,1
+
+finance.access_article,access_article,finance.model_finance_article,base.group_user,1,1,1,1
+finance.access_paragraph,access_paragraph,finance.model_finance_paragraph,base.group_user,1,1,1,1
+finance.access_ligne,access_ligne,finance.model_finance_ligne,base.group_user,1,1,1,1
+finance.access_engagement,access_engagement,finance.model_finance_engagement,base.group_user,1,1,1,1

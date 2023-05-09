@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="gestion_fn_menu"
+              name="Finance"
+              sequence="0"
+    >
+
+    <menuitem id="options_menu"
+              name="Recette"
+              sequence="0"
+    />
+    </menuitem>
+</odoo>
+
