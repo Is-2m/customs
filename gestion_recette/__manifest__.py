@@ -23,7 +23,7 @@
         'views/ordre_recette_view.xml',
         'views/compte_view.xml',
         'views/debiteur_view.xml',
-        'views/ordonnateur_view.xml',
+        # 'views/ordonnateur_view.xml',
         'views/menu.xml',
         'reports/report_action.xml',
         'reports/order_recette_report.xml'

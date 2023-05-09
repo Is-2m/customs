@@ -1,1 +1,1 @@
-from . import  ligne_recette,ordonnateur, debiteur,ordre_recette,compte
+from . import  ligne_recette,debiteur,ordre_recette,compte,piece_jointe

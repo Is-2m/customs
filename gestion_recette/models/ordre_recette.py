@@ -6,9 +6,12 @@ class ordre_recette(models.Model):
     _name = "or.ordre.recette"
     _description = "Ordre Recette Enregistrement"
 
-    ordonnateur_id = fields.Many2one('or.ordonnateur', string="Ordonnateur ID", required=True)
+    # ------------------------------ Relations -----------------------
     nature_id = fields.Many2one('or.ligne.recette', 'Nature Recette', required=True)
     debiteur_id = fields.Many2one('or.debiteur', string="Debiteur ID", required=True)
+    compte_id = fields.Many2one('or.compte', string='Comptes', required=True)
+
+    # ------------------------------ Relations -----------------------
     facturation = fields.Char(string="Facturation n")
     description = fields.Char(string="Description")
     marche = fields.Char(string="Marche n")
@@ -21,11 +24,8 @@ class ordre_recette(models.Model):
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
-    # piece_jointe_ids = fields.Char(string="")
+    piece_jointe_ids = fields.Many2many('or.piece_jointe', string="Pieces Jointes")
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
-    num_compte = fields.Char(string='Numero Compte', compute='_get_num_compte', store=False)
-    type_compte = fields.Char(string='Type Compte', compute='_get_type_compte', store=False)
-
 
     @api.depends('montant_chiffre')
     def _compute_total_montant_chiffre(self):
@@ -50,18 +50,22 @@ class ordre_recette(models.Model):
                 else:
                     rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
+    # @api.depends('ordonnateur_id.comptes.num_compte')
+    # def _get_num_compte(self):
+    #     for ordre_recette in self:
+    #         ordre_recette.num_compte = ordre_recette.ordonnateur_id.comptes.num_compte if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
+    #
+    # @api.depends('ordonnateur_id.comptes.type')
+    # def _get_type_compte(self):
+    #     for ordre_recette in self:
+    #         ordre_recette.type_compte = ordre_recette.ordonnateur_id.comptes.type if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
 
-    @api.depends('ordonnateur_id.comptes.num_compte')
-    def _get_num_compte(self):
-        for ordre_recette in self:
-            ordre_recette.num_compte = ordre_recette.ordonnateur_id.comptes.num_compte if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
-
-    @api.depends('ordonnateur_id.comptes.type')
-    def _get_type_compte(self):
-        for ordre_recette in self:
-            ordre_recette.type_compte = ordre_recette.ordonnateur_id.comptes.type if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
+    # @api.depends('ordonnateur_id.comptes')
+    # def _get_ordo_comptes(self):
+    # for ordre_recette in self:
+    # ordre_recette.comptes = ordre_recette.ordonnateur_id.comptes if ordre_recette.ordonnateur_id else ''
 
 
 _sql_constraints = [
-        ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
-    ]
+    ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
+]

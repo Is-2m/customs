@@ -12,10 +12,8 @@
                             <group>
                                 <field name="num_compte"/>
                                 <field name="name"/>
-                            </group>
-                            <group>
-                                <field name="ordonnateur_id"/>
                                 <field name="type"/>
+
                             </group>
                         </group>
                     </sheet>
@@ -29,7 +27,6 @@
                 <tree string="Compte">
                     <field name="num_compte"/>
                     <field name="name"/>
-                    <field name="ordonnateur_id"/>
                     <field name="type"/>
                 </tree>
             </field>

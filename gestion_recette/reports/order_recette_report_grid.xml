@@ -1,0 +1,209 @@
+<odoo>
+    <data>
+        <template id="custom_layout">
+            <div class="header">
+                <xpath expr="." position="inside">
+                    <link href="/gestion_recette/static/src/css/report.css" rel="stylesheet"/>
+                </xpath>
+                <div class="text-center" style="border-bottom: 3px solid black;">
+                    <img src="/gestion_recette/static/report/header.png" alt="image is not loading ..."
+                         height="153" width="1300"
+                    />
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-out="0"/>
+
+            </div>
+            <div class="footer o_standard_footer">
+                <div class="text-center" style="border-bottom: 3px solid black;">
+                    <img src="/gestion_recette/static/report/footer.png" alt="image is not loading ..."
+                         height="153" width="1300"
+                    />
+                </div>
+            </div>
+        </template>
+
+        <template id="ordre_recette_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="gestion_recette.custom_layout">
+                        <div class="page">
+                            <div style="height: 1.35rem; display: flex; align-items:center;margin-bottom: 1px;">
+                                <div style="border: 2px black solid;width: 25%; border-bottom: none; margin-left: 45%;height: 100%;">
+                                </div>
+                                <span style="font-style: italic;">(1)</span>
+                                <span style="margin-left: auto;font-weight: bold;">/2020</span>
+                            </div>
+                            <div>
+                                <div style=" display: grid; grid-template-columns: 1fr 31% 60%;place-content:
+            center;height: fit-content;">
+                                    <div style="border: 2px black solid;text-align: center;padding-block: 1rem;">
+                                    </div>
+                                    <div
+                                            style="font-size: min(13px,2vw);border: 2px black solid;border-left: none;text-align: center;padding-block: 0.5vh;">
+                                        Service Ordonnateur ou sous ordonnateur
+                                    </div>
+                                    <div
+                                            style="font-size: 1rem;border: 2px black solid;border-left: none;text-align: center;padding-block: 0.5vh;">
+                                        Nom ou raison sociale du débiteur et adresse complète :
+                                    </div>
+                                    <div style="border: 2px black solid;border-block: none;text-align: center;font-weight: bold;">
+                                        A
+                                    </div>
+                                    <div
+                                            style="font-size: 13px;font-weight: bold;border-right: 2px black solid;text-align: center;padding: 2px;">
+                                        Ecoles Nationale des Sciences
+                                        Appliquées de Fès
+                                    </div>
+                                    <div style="border-right: 2px black solid;text-align: center;padding-bottom: 1px;">
+                                    </div>
+                                </div>
+                                <div style=" display: grid; grid-template-columns: 40% 1fr 1fr;place-content:center;
+                border: 2px black solid;">
+                                    <div style="padding: 0.25rem;">Nature de la recette
+                                    </div>
+                                    <div style="padding: 0.25rem;">Facturation n°</div>
+                                    <div style="padding: 0.25rem;">Décision n°</div>
+                                    <!-- nature de la recette input -->
+                                    <div style="padding: 0.25rem;"></div>
+                                    <div style="padding: 0.25rem;">Marché n°</div>
+                                    <div style="padding: 0.25rem;">A.C. Banque n°</div>
+                                    <!-- to create the space -->
+                                    <div style="padding: 0.25rem;"></div>
+                                    <div style="padding: 0.25rem;">Contrat n°</div>
+                                    <div style="padding: 0.25rem;">Convention n°</div>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 70%;">
+                                <div>Explication detaillee :</div>
+                                <div></div>
+                                <div></div>
+                                <div style="font-weight: bold; padding-bottom: 1rem; text-align: center;">
+                                    1ERE TRANCHE DE LA SUBVENTION D'EXPLOITATION 2020
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 30% 50% 1fr; border: 2px black solid;">
+                                <div style="border-bottom: 2px black solid;padding: 0.5rem;">
+                                    Arrêté à la somme de :
+                                </div>
+                                <div style="border-bottom: 2px black solid;border-right: 2px black solid;padding: 0.5rem;">
+                                    Montant de la recette
+                                </div>
+                                <div style="border-bottom: 2px black solid;padding: 0.5rem;text-align: center;">
+                                    DHs</div>
+                                <!-- to create space -->
+                                <div></div>
+                                <div style="font-weight: bold;border-right: 2px black solid;padding: 0.5rem;">VINGT
+                                    MILLE DH
+                                </div>
+                                <div style="font-weight: bold;display: grid;place-content: center;">20,000.0</div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 70%;">
+                                <div>Pièces jointes :</div>
+                                <div></div>
+                                <div></div>
+                                <div style="font-weight: bold; padding-bottom: 1rem; text-align: center;">
+                                    - Relevé du Trésor
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 13.2% 30% 10% 1fr 30% 10%;border: 2px black solid;">
+                                <div style="display: grid;place-content: center;padding-block: 0.5rem;border-right: 2px black solid;">
+                                    B
+                                </div>
+                                <div style="grid-column: span 5;display: grid;place-content: center;">IMPUTATIONS
+                                    COMPTABLES</div>
+                            </div>
+                            <div style="display: flex;border: 2px black solid;border-top: none;">
+                                <div
+                                        style="display: flex; flex-direction: column; justify-content: space-between;align-items: center;width:15%;">
+                                    <span style="font-size: 13px;padding-top:1.2rem;">Budgetaire</span>
+                                    <span style="font-size: 13px;">Generale</span>
+                                </div>
+                                <div style="display: flex;width: 100%;border-left: 2px black solid;;">
+                                    <div style="display: grid; grid-template-columns: 60% 40%; width: 45%;">
+                                        <div style="grid-column: span 2; padding-left: 30%;border-bottom: 2px black solid;">
+                                            Aux debits</div>
+                                        <div
+                                                style="font-size: 13px;text-align: center;border-right: 2px black solid;border-bottom: 2px black solid;">
+                                            N°
+                                            Comptes</div>
+                                        <div style="font-size: 13px;border-bottom: 2px black solid;text-align: center;">
+                                            Montant</div>
+                                        <div style="font-size: 13px;font-weight: bold;text-align: center;
+                    padding-bottom: 5rem;border-bottom: 2px black solid;border-right: 2px black solid;">
+                                            Subvention d'exploitation
+                                        </div>
+                                        <div style="font-size: 13px;border-bottom: 2px black solid;text-align: center;font-weight: bold;">
+                                            20,000.0
+                                        </div>
+                                        <div style="font-size: 13px;border-right: 2px black solid;text-align: center;font-weight: bold;">
+                                            476097912671299
+                                        </div>
+                                        <div style="font-size: 13px;text-align: center;font-weight: bold;">
+                                            20,000.0</div>
+                                    </div>
+                                    <div style="width: 10%; height: 100%;border-inline: 2px black solid;"></div>
+                                    <div style="display: grid; grid-template-columns: 60% 40%;width:45%;">
+                                        <div style="grid-column: span 2; padding-left: 30%;border-bottom: 2px black solid;">
+                                            Aux debits</div>
+                                        <div
+                                                style="font-size: 13px;text-align: center;border-right: 2px black solid;border-bottom: 2px black solid;">
+                                            N°
+                                            Comptes</div>
+                                        <div style="font-size: 13px;border-bottom: 2px black solid;text-align: center;">
+                                            Montant</div>
+                                        <div style="font-size: 13px;font-weight: bold;text-align: center;
+                    padding-bottom: 5rem;border-bottom: 2px black solid;border-right: 2px black solid;">
+                                            Subvention d'exploitation
+                                        </div>
+                                        <div style="font-size: 13px;border-bottom: 2px black solid;text-align: center;font-weight: bold;">
+                                            20,000.0
+                                        </div>
+                                        <div style="font-size: 13px;border-right: 2px black solid;text-align: center;font-weight: bold;">
+                                            476097912671299
+                                        </div>
+                                        <div style="font-size: 13px;text-align: center;font-weight: bold;">
+                                            20,000.0</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="font-size: 13px;">Transmis à l'Agence Comptable pour imputation et recette
+                                (2)</div>
+                            <div style="display: flex;justify-content: space-between;">
+                                <div style="font-size: 13px;">Signature du sous-ordonnateur</div>
+                                <div style="font-size: 13px;">Visa du Trésorier Payeur</div>
+                            </div>
+                            <div style="display: flex;justify-content: space-between;">
+                                <div style="display: grid;grid-template-columns: repeat(4,1fr);">
+                                    <div style="font-size: 13px;font-weight: bold;border: 2px black solid;padding-inline: 5px;">
+                                        Date</div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div></div>
+                                    <div>J</div>
+                                    <div>M</div>
+                                    <div>A</div>
+                                </div>
+                                <div style="display: grid;grid-template-columns: repeat(4,1fr);">
+                                    <div style="font-size: 13px;font-weight: bold;border: 2px black solid;padding-inline: 5px;">
+                                        Date</div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div style="border: 2px black solid;border-left: none;"></div>
+                                    <div></div>
+                                    <div>J</div>
+                                    <div>M</div>
+                                    <div>A</div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
