@@ -6,12 +6,15 @@ class Paragraph(models.Model):
     _rec_name = 'label'
 
     id = fields.Integer(primary_key=True)
-    code = fields.Char(required=True, index=True, unique=True)
+    code = fields.Char(required=True, index=True)
     label = fields.Char(required=True)
 
     article_id = fields.Many2one('finance.article', string='Article', ondelete='cascade')
     ligne_ids = fields.One2many('finance.ligne', 'paragraph_id', string='Lignes')
 
+    _sql_constraints = [
+        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
+    ]
     def create_ligne(self):
         self.env['finance.ligne'].create({
             'code': 'New Ligne',

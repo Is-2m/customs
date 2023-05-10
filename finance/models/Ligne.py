@@ -7,7 +7,7 @@ class Ligne(models.Model):
     _rec_name = 'label'
 
     id = fields.Integer(primary_key=True)
-    code = fields.Char(required=True, index=True, unique=True)
+    code = fields.Char(required=True, index=True)
     label = fields.Char(required=True)
     paragraph_id = fields.Many2one('finance.paragraph', string='Paragraph', ondelete='cascade')
     engagement_ids=fields.One2many("finance.engagement","ligne_id",string="Engagements")
@@ -15,6 +15,11 @@ class Ligne(models.Model):
 
     article_code = fields.Char(string='Article Code', compute='_get_article_code', store=False)
     paragraph_code = fields.Char(string='Paragraph Code', compute='_get_paragraph_code', store=False)
+
+    _sql_constraints = [
+        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
+    ]
+
     @api.depends('paragraph_id.article_id.code')
     def _get_article_code(self):
         for ligne in self:

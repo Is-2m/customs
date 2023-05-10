@@ -20,13 +20,20 @@ class ordre_recette(models.Model):
     decision = fields.Char(string="Decision n")
     ac_banque = fields.Char(string="A.C Bangue n")
     convention = fields.Char(string="Convention n")
+    year = fields.Integer(string="Date de l'ordre de recette")
     montant_chiffre = fields.Float(string="Montant Chiffre", required=True)
-    montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre")
+    montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre", store=True)
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
+
+    _sql_constraints = [
+        ('check_my_integer_field_range', 'CHECK (year >= 1900 AND year <= 2300)',
+         'My Integer Field must be between 1900 and 2300!'),
+        ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
+    ]
 
     @api.depends('montant_chiffre')
     def _compute_total_montant_chiffre(self):
@@ -65,8 +72,3 @@ class ordre_recette(models.Model):
     # def _get_ordo_comptes(self):
     # for ordre_recette in self:
     # ordre_recette.comptes = ordre_recette.ordonnateur_id.comptes if ordre_recette.ordonnateur_id else ''
-
-
-_sql_constraints = [
-    ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
-]
