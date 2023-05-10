@@ -83,6 +83,5 @@
         </field>
     </record>
 
-    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
-              sequence="0"/>
+
 </odoo>

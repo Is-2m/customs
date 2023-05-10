@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="gestion_fn_menu"
-              name="Finance"
-              sequence="0"
+    <menuitem id="gestion_fn_menu" name="Finance" sequence="0"
     >
 
-    <menuitem id="options_menu"
-              name="Recette"
-              sequence="0"
-    />
+        <menuitem id="options_menu" name="Recette" sequence="0"
+        />
     </menuitem>
+    <menuitem id="gestion_ligne_menu" name="Gestion Lignes" parent="finance.gestion_fn_menu" sequence="1"/>
+    <menuitem id="gestion_payment_menu" name="Gestion Payments" parent="gestion_fn_menu" sequence="2"/>
+
+    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
+              sequence="0"/>
+    <menuitem id="nature_recette_menu" name="Nature Recette" action="nature_recette_model_action" parent="options_menu"
+              sequence="1"/>
+    <menuitem id="debiteur_menu" name="Debiteurs" action="debiteur_model_action" parent="options_menu" sequence="2"/>
+    <menuitem id="compte_menu" name="Compte" action="compte_model_action" parent="options_menu" sequence="3"/>
+
+
+    <menuitem id="ligne_menu_action" name="Lignes" parent="gestion_ligne_menu" action="ligne_action" sequence="0"/>
+    <menuitem id="paragraphe_menu_action" name="Paragraphes" parent="gestion_ligne_menu" action="paragraph_action"
+              sequence="1"/>
+    <menuitem id="article_menu_action" name="Articles" parent="gestion_ligne_menu" action="action_article"
+              sequence="2"/>
+
+    <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement"
+              sequence="1"/>
+
 </odoo>
 

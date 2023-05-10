@@ -43,10 +43,6 @@
             </field>
         </record>
 
-        <menuitem id="compte_menu"
-                  name="Compte"
-                  action="compte_model_action"
-                  parent="options_menu"
-                  sequence="4"/>
+
     </data>
 </odoo>

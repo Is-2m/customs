@@ -48,10 +48,6 @@
             </field>
         </record>
 
-        <menuitem id="nature_recette_menu"
-                  name="Nature Recette"
-                  action="nature_recette_model_action"
-                  parent="options_menu"
-                  sequence="1"/>
+
     </data>
 </odoo>

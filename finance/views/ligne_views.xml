@@ -13,12 +13,6 @@
         </field>
     </record>
 
-    <record id="ligne_action" model="ir.actions.act_window">
-        <field name="name">Ligne</field>
-        <field name="res_model">finance.ligne</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
     <record id="ligne_form_view" model="ir.ui.view">
         <field name="name">ligne.form</field>
         <field name="model">finance.ligne</field>
@@ -33,5 +27,13 @@
                 </sheet>
             </form>
         </field>
+    </record>
+
+
+
+    <record id="ligne_action" model="ir.actions.act_window">
+        <field name="name">Ligne</field>
+        <field name="res_model">finance.ligne</field>
+        <field name="view_mode">tree,form</field>
     </record>
 </odoo>

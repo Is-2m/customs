@@ -38,10 +38,6 @@
             </field>
         </record>
 
-        <menuitem id="debiteur_menu"
-                  name="Debiteurs"
-                  action="debiteur_model_action"
-                  parent="options_menu"
-                  sequence="3"/>
+
     </data>
 </odoo>
