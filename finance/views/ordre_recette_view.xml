@@ -9,6 +9,7 @@
                 <field name="nature_id"/>
                 <field name="compte_id"/>
                 <field name="debiteur_id"/>
+                <field name="year"/>
                 <field name="montant_chiffre"/>
                 <field name="montant_lettre"/>
                 <field name="piece_jointe_ids"/>
@@ -24,6 +25,7 @@
                 <group col="2">
                     <field name="debiteur_id"/>
                     <field name="compte_id"/>
+                    <field name="year"/>
                 </group>
                 <separator/>
                 <group>
@@ -70,6 +72,21 @@
         </form>
         </field>
     </record>
+
+     <record id="or_ordre_recette_search" model="ir.ui.view">
+        <field name="name">fincance.or.ordre.recette.search</field>
+        <field name="model">finance.ordre.recette</field>
+        <field name="arch" type="xml">
+            <search>
+                <filter name="Nature de la recette" string="Nature de la recette"
+                        domain="[('nature_id','=',self)]"/>
+                <group>
+                    <filter string="Annee" name="year" context="{'group_by':'year'}"/>
+                </group>
+            </search>
+        </field>
+     </record>
+
 
     <record id="ordre_recette_model_action" model="ir.actions.act_window">
 
