@@ -73,7 +73,7 @@
                                     <td colspan="3">
                                         <table class="all-td-hidden" width="100%" style="height: 100px;">
                                             <tr>
-                                                <td rowspan="3" valign="top">Nature de la recette</td>
+                                                <td rowspan="3" valign="top">Nature de la recette: <br/><span t-field="doc.nature_id" /></td>
                                                 <td>Facturation n°</td>
                                                 <td>Décision n°</td>
                                             </tr>
@@ -178,7 +178,7 @@
                                     <td></td>
                                     <td style="border: 2px black solid">
                                         <t t-if="doc.compte_id.type=='debits'">
-                                            <span t-field="doc.nature_id"/>
+                                            <span t-field="doc.type"/>
                                         </t>
                                     </td>
                                     <td style="border: 2px black solid">
@@ -189,7 +189,7 @@
                                     <td style="background-color: #ffbf00"></td>
                                     <td style="border: 2px black solid">
                                         <t t-if="doc.compte_id.type=='credits'">
-                                            <span t-field="doc.nature_id"/>
+                                            <span t-field="doc.type"/>
                                         </t></td>
                                     <td style="border: 2px black solid">
                                         <t t-if="doc.compte_id.type=='credits'">

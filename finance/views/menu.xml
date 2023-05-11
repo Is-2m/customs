@@ -24,6 +24,8 @@
               sequence="2"/>
 
     <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement"
+              sequence="0"/>
+    <menuitem id="bon_commande_menu_action" name="Bon Comandes" parent="gestion_payment_menu" action="finance.bon_commande_model_action"
               sequence="1"/>
 
 </odoo>

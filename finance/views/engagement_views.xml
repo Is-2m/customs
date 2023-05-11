@@ -5,8 +5,6 @@
             <field name="model">finance.engagement</field>
             <field name="arch" type="xml">
                 <tree string="Engagements">
-<!--                    <field name="id"/>-->
-<!--                    <field name="display_name"/>-->
                     <field name="montant"/>
                     <field name="date_engagement"/>
                     <field name="ligne_id"/>

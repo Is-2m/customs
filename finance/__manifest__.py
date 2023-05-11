@@ -1,8 +1,3 @@
-
-
-
-
-
 {
     'name': "Finance",
     'description': """
@@ -27,6 +22,7 @@
         'views/paragraph_views.xml',
         'views/ligne_views.xml',
         'views/engagement_views.xml',
+        'views/bon_commande_view.xml',
         'views/menu.xml',
         'reports/report_action.xml',
         'reports/order_recette_report.xml'
