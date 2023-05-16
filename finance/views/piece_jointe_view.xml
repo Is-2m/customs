@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="view_piece_jointe_form" model="ir.ui.view">
+            <field name="name">finance.piece_jointe.form</field>
+            <field name="model">finance.piece_jointe</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Intitule de Piece"/>
+                                <span style="font-style: italic;font-weight: light" >Sera imprimé dans le rapport</span>
+                            </group>
+                            <group>
+                                <field name="file_data" filename="file_name" string="Ficher"/>
+                                <field name="file_name" string="Nom de Ficher"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Ordres Recettes">
+                                <field name="order_recette_ids" mode="tree">
+                                    <tree>
+                                        <field name="nature_id"/>
+                                        <field name="debiteur_id"/>
+                                        <field name="compte_id"/>
+                                        <field name="description"/>
+                                        <field name="montant_chiffre"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_piece_jointe_tree" model="ir.ui.view">
+            <field name="name">finance.piece_jointe.tree</field>
+            <field name="model">finance.piece_jointe</field>
+            <field name="arch" type="xml">
+                <tree string="Pieces Jointes">
+                    <field name="name" string="Intitule de Piece"/>
+                    <field name="file_name" string="Nom de Ficher"/>
+                    <field name="file_data" string="Ficher"/>
+                </tree>
+            </field>
+        </record>
+
+<!--        <record id="ModelName_search_view" model="ir.ui.view">-->
+<!--            <field name="name">finance.piece_jointe.search</field>-->
+<!--            <field name="model">finance.piece_jointe</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search string="ModelTitle">-->
+<!--                    <group expand="1" string="Group By">-->
+<!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+<!--                                context="{'group_by':'example_field'}"/>-->
+<!--                    </group>-->
+<!--                </search>-->
+<!--            </field>-->
+<!--        </record>-->
+
+        <record id="action_piece_jointe_model" model="ir.actions.act_window">
+            <field name="name">ModelTitle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.piece_jointe</field>
+<!--            <field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+<!--        <menuitem name="ModelTitle" id="ModelName_menu" parent="" action="ModelName_act_window"/>-->
+
+    </data>
+</odoo>

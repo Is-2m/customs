@@ -8,7 +8,8 @@
     'depends': ['base', 'web'],
     'assets': {
         'web.report_assets_pdf': [
-            '/finance/static/src/css/report.css'
+            '/finance/static/src/css/report.css',
+            '/finance/static/src/css/bon_com_report.css'
         ]
     },
     'data': [
@@ -23,9 +24,12 @@
         'views/ligne_views.xml',
         'views/engagement_views.xml',
         'views/bon_commande_view.xml',
+        'views/piece_jointe_view.xml',
         'views/menu.xml',
         'reports/report_action.xml',
-        'reports/order_recette_report.xml'
+        'reports/order_recette_report.xml',
+        'reports/bon_commande_report.xml',
+        'reports/ordre_paiement_report.xml'
     ],
 
     'installable': True,

@@ -1,0 +1,134 @@
+<odoo>
+    <data>
+        <template id="custom_layout_no_footer">
+            <div class="header">
+                <xpath expr="." position="inside">
+                    <link href="/finance/static/src/css/bon_com_report.css" rel="stylesheet"/>
+                </xpath>
+                <div class="text-center" style="border-bottom: 3px solid black;">
+                    <img src="/finance/static/report/header.png" alt="image is not loading ..."
+                         height="153" width="1300"
+                    />
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-out="0"/>
+
+            </div>
+            <div class="footer o_standard_footer">
+            </div>
+        </template>
+
+        <template id="bon_com_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="finance.custom_layout_no_footer">
+                        <div class="page">
+                            <table style="float: right; margin: 0;">
+                                <tr class="border-all">
+                                    <td class="border-all">Article</td>
+                                    <td class="border-all"><span>911</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Paragraph</td>
+                                    <td class="border-all"><span>10</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Ligne</td>
+                                    <td class="border-all"><span>72</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Rubrique</td>
+                                    <td class="border-all">
+                                        <span>
+                                            Achat de material technique, scientifique et audiovisuel
+                                        </span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <center style="padding-top: 20px; clear: both">
+                                <h3 style="font-weight: bold; margin: 8px">Bon Commande</h3>
+                                <p style="margin: 8px">Numero: 44/2022</p>
+                                <p style="margin: 8px">Date: 12/10/2022</p>
+                            </center>
+                            <table style="margin-top: 20px" class="hide-all-borders" width="100%">
+                                <tr>
+                                    <td class="hide-all-borders">Fournisseur</td>
+                                    <td class="hide-all-borders">: <span>STE FES TRIOMPHE</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="hide-all-borders">Adresse</td>
+                                    <td class="hide-all-borders">: <span>Av Yarmouk imm 10 n°9 VN Fes</span></td>
+                                </tr>
+                            </table>
+                            <table width="100%">
+                                <tr>
+                                    <th class="border-all text-center" style="width: 10%">ART.N°</th>
+                                    <th class="border-all" style="width: 40%">Designation</th>
+                                    <th class="border-all text-center" style="width: 10%">QTE</th>
+                                    <th class="border-all" style="width: 20%">PU HT</th>
+                                    <th class="border-all" style="width: 20%">TOTALE HT</th>
+                                </tr>
+                                <tr>
+                                    <td class="border-all text-center">1</td>
+                                    <td class="border-all">
+                                        Videoprojecteur 3LCD Epson avec connexion sans fil wifi b/g/n
+                                    </td>
+                                    <td class="border-all text-center">1</td>
+                                    <td class="border-all text-right">95000</td>
+                                    <td class="border-all text-right">95000</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all text-center">2</td>
+                                    <td class="border-all">Appareil photo numerique professionnel</td>
+                                    <td class="border-all text-center">1</td>
+                                    <td class="border-all text-right">4500</td>
+                                    <td class="border-all text-right">4500</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all" rowspan="3" colspan="3">
+                                        Destination et utilisation: Achat de materiel audiovisuel au profit de
+                                        l'ENSAF
+                                    </td>
+                                    <td class="border-all">TOTAL HT</td>
+                                    <td class="border-all text-right">14000</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">TVA 20%:</td>
+                                    <td class="border-all text-right">2800</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">TOTAL TTC</td>
+                                    <td class="border-all text-right">16800</td>
+                                </tr>
+                            </table>
+                            <table width="100%" class="hide-all-borders">
+                                <tr>
+                                    <td style="width: 50%" class="hide-all-borders">
+                                        Arrêté le présent Bon de Command à la somme de:
+                                    </td>
+                                    <td style="width: 50%" class="hide-all-borders">
+                                        <b>AVIS IMPORTANT:</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hide-all-borders"><span>SEIZE MILLE HUIT CENTS</span></td>
+                                    <td class="hide-all-borders">
+                                        <i
+                                        >La facture doit etre etablire en 5 Certainly elsewhere my do
+                                            allowance at. The address farther six hearted hundred towards
+                                            husband. Are securing off occasion remember daughter replying. Held
+                                            that feel his see own yet. Strangers ye to he sometimes propriety
+                                            in. She right plate seven has. Bed who perceive judgment did
+                                            marianne.
+                                        </i>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

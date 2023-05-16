@@ -11,30 +11,34 @@ class ordre_recette(models.Model):
     debiteur_id = fields.Many2one('finance.debiteur', string="Debiteur ID", required=True)
     compte_id = fields.Many2one('finance.compte', string='Comptes', required=True)
 
-    # ------------------------------ Relations -----------------------
-    date = fields.Date(String="Date")
+    # ------------------------------ Fields -----------------------
     facturation = fields.Char(string="Facturation n")
-    description = fields.Char(string="Description")
+    description = fields.Char(string="Explication")
     marche = fields.Char(string="Marche n")
     contrat = fields.Char(string="Contract n")
     decision = fields.Char(string="Decision n")
     ac_banque = fields.Char(string="A.C Bangue n")
     convention = fields.Char(string="Convention n")
-    year = fields.Integer(string="Date de l'ordre de recette")
+    year = fields.Integer(string="Annee", default=lambda self: fields.Datetime.today().year, required=True)
     montant_chiffre = fields.Float(string="Montant Chiffre", required=True)
     montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre", store=True)
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
+    # ---------------------------------------Computed Fields----------------------------------
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
+    formated_year = fields.Char(compute='_year_withou_comma', string="Annee",store=False)
 
+
+    # ---------------------------SQL Constraints----------------------------------------
     _sql_constraints = [
         ('check_my_integer_field_range', 'CHECK (year >= 1900 AND year <= 2300)',
          'My Integer Field must be between 1900 and 2300!'),
         ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
     ]
 
+    # ------------------------------Api.Dependes-------------------------------------
     @api.depends('montant_chiffre')
     def _compute_total_montant_chiffre(self):
         total = sum(self.mapped('montant_chiffre'))
@@ -58,17 +62,9 @@ class ordre_recette(models.Model):
                 else:
                     rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
-    # @api.depends('ordonnateur_id.comptes.num_compte')
-    # def _get_num_compte(self):
-    #     for ordre_recette in self:
-    #         ordre_recette.num_compte = ordre_recette.ordonnateur_id.comptes.num_compte if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
-    #
-    # @api.depends('ordonnateur_id.comptes.type')
-    # def _get_type_compte(self):
-    #     for ordre_recette in self:
-    #         ordre_recette.type_compte = ordre_recette.ordonnateur_id.comptes.type if ordre_recette.ordonnateur_id or ordre_recette.ordonnateur_id.comptes else ''
 
-    # @api.depends('ordonnateur_id.comptes')
-    # def _get_ordo_comptes(self):
-    # for ordre_recette in self:
-    # ordre_recette.comptes = ordre_recette.ordonnateur_id.comptes if ordre_recette.ordonnateur_id else ''
+    @api.depends('year')
+    def _year_withou_comma(self):
+        for record in self:
+            record.formated_year = '{:04d}'.format(record.year)
+

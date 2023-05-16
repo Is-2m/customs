@@ -1,0 +1,64 @@
+
+h2 {
+    font-family: "Droid Serif", "DejaVu Serif", "STIX", serif;
+}
+
+h3 {
+    font-family: "Droid Serif", "DejaVu Serif", "STIX", serif;
+}
+
+.border-all {
+    padding: 5px;
+    border: 2px black solid;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hide-all-borders {
+    border-style: hidden;
+}
+
+span {
+    font-weight: bold;
+}
+
+table {
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.hide-border-left {
+    border-left-style: hidden !important;
+}
+
+.hide-border-top {
+    border-top-style: hidden !important;
+}
+
+.hide-border-right {
+    border-right-style: hidden !important;
+}
+
+.hide-border-bottom {
+    border-bottom-style: hidden !important;
+}
+
+.hide-border-vertical {
+    border-bottom-style: hidden !important;
+    border-top-style: hidden !important;
+}
+
+.hide-border-horizontal {
+    border-left-style: hidden !important;
+    border-right-style: hidden !important;
+}
+
+.bg-light-gray {
+    background-color: lightgray;
+}

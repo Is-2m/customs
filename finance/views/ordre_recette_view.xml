@@ -4,16 +4,16 @@
         <field name="name">finance_ordre_recette_tree</field>
         <field name="model">finance.ordre.recette</field>
         <field name="arch" type="xml">
-
             <tree string="Les ordres de recette">
                 <field name="nature_id"/>
                 <field name="compte_id"/>
-                <field name="debiteur_id"/>
-                <field name="year"/>
+                <field name="debiteur_id" string="Debiteur"/>
+                <field name="formated_year"/>
                 <field name="montant_chiffre"/>
                 <field name="montant_lettre"/>
                 <field name="piece_jointe_ids"/>
             </tree>
+
         </field>
     </record>
 
@@ -25,7 +25,7 @@
                 <group col="2">
                     <field name="debiteur_id"/>
                     <field name="compte_id"/>
-                    <field name="year"/>
+                    <field name="year" widget="char"/>
                 </group>
                 <separator/>
                 <group>
@@ -60,9 +60,12 @@
                 <notebook>
                     <page string="Pieces Jointes">
                         <field name="piece_jointe_ids" mode="tree">
-                            <tree>
-                                <field name="name"/>
-                                <field name="file_data"/>
+
+                            <tree string="Pieces Jointes">
+                                <field name="name" string="Intitule de Piece"/>
+                                <field name="file_name" string="Nom de Ficher"/>
+                                <field name="file_data" string="Ficher"/>
+
                             </tree>
 
                         </field>
@@ -73,19 +76,21 @@
         </field>
     </record>
 
-     <record id="or_ordre_recette_search" model="ir.ui.view">
+    <record id="or_ordre_recette_search" model="ir.ui.view">
         <field name="name">fincance.or.ordre.recette.search</field>
         <field name="model">finance.ordre.recette</field>
         <field name="arch" type="xml">
             <search>
-                <filter name="Nature de la recette" string="Nature de la recette"
-                        domain="[('nature_id','=',self)]"/>
+                <field name="nature_id" string="Nature Recette"/>
+                <field name="compte_id" string="Comptes"/>
+                <field name="debiteur_id" string="Debiteur"/>
+
                 <group>
                     <filter string="Annee" name="year" context="{'group_by':'year'}"/>
                 </group>
             </search>
         </field>
-     </record>
+    </record>
 
 
     <record id="ordre_recette_model_action" model="ir.actions.act_window">
