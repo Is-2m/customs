@@ -4,7 +4,6 @@
         <field name="name">finance_ordre_recette_tree</field>
         <field name="model">finance.ordre.recette</field>
         <field name="arch" type="xml">
-
             <tree string="Les ordres de recette">
                 <field name="nature_id"/>
                 <field name="compte_id"/>
