@@ -6,6 +6,6 @@ class EngagementProduit(models.Model):
     # _description = 'Description'
 
     # name = fields.Char()
-    engagement_id = fields.Many2one('finance.engagement', string='Engagement')
-    product_id = fields.Many2one('finance.produit', string='Product')
+    engagement_id = fields.Many2one('finance.engagement', string='Engagement', required=True)
+    produit_id = fields.Many2one('finance.produit', string='Product', required=True)
     quantity = fields.Integer(string='Quantite Acheter')

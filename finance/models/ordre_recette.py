@@ -10,8 +10,8 @@ class ordre_recette(models.Model):
     nature_id = fields.Many2one('finance.ligne.recette', 'Nature Recette', required=True)
     debiteur_id = fields.Many2one('finance.debiteur', string="Debiteur ID", required=True)
     compte_id = fields.Many2one('finance.compte', string='Comptes', required=True)
-
     # ------------------------------ Fields -----------------------
+
     facturation = fields.Char(string="Facturation n")
     description = fields.Char(string="Explication")
     marche = fields.Char(string="Marche n")
@@ -28,8 +28,7 @@ class ordre_recette(models.Model):
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
     # ---------------------------------------Computed Fields----------------------------------
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
-    formated_year = fields.Char(compute='_year_withou_comma', string="Annee",store=False)
-
+    formated_year = fields.Char(compute='_year_withou_comma', string="Annee", store=False)
 
     # ---------------------------SQL Constraints----------------------------------------
     _sql_constraints = [
@@ -62,9 +61,7 @@ class ordre_recette(models.Model):
                 else:
                     rec.montant_lettre = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
-
     @api.depends('year')
     def _year_withou_comma(self):
         for record in self:
             record.formated_year = '{:04d}'.format(record.year)
-
