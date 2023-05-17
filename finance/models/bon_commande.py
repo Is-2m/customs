@@ -4,6 +4,6 @@ from odoo import fields, models, api
 class BonCommande(models.Model):
     _name = 'finance.bon.commande'
     _description = 'Description'
-    _inherit = "finance.engagement"
+    _inherit = "finance.payment"
 
-    kda = fields.Char(required=True)
+    
