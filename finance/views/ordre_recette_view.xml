@@ -60,14 +60,11 @@
                 <notebook>
                     <page string="Pieces Jointes">
                         <field name="piece_jointe_ids" mode="tree">
-
                             <tree string="Pieces Jointes">
                                 <field name="name" string="Intitule de Piece"/>
                                 <field name="file_name" string="Nom de Ficher"/>
                                 <field name="file_data" string="Ficher"/>
-
                             </tree>
-
                         </field>
                     </page>
                 </notebook>
