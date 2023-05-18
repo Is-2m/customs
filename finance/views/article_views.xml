@@ -5,10 +5,12 @@
         <field name="model">finance.article</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <button name="create_paragraph" string="Create Paragraph"/>
-                </header>
                 <sheet>
+                    <header>
+                        <button type="object" name="create_paragraph" string="Create Paragraph"
+                                    context="{'codei': code, 'labeli': label}"/>
+
+                    </header>
                     <group>
                         <field name="code"/>
                         <field name="label"/>
@@ -30,15 +32,15 @@
     </record>
 
     <record id="view_article_tree" model="ir.ui.view">
-      <field name="name">article.tree</field>
+        <field name="name">article.tree</field>
 
-      <field name="model">finance.article</field>
-      <field name="arch" type="xml">
-        <tree>
-          <field name="code" size="1" />
-          <field name="label" size="3"/>
-        </tree>
-      </field>
+        <field name="model">finance.article</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code" size="1"/>
+                <field name="label" size="3"/>
+            </tree>
+        </field>
     </record>
 
 

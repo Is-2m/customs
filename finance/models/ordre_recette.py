@@ -21,13 +21,14 @@ class ordre_recette(models.Model):
     convention = fields.Char(string="Convention n")
     year = fields.Integer(string="Annee", default=lambda self: fields.Datetime.today().year, required=True)
     montant_chiffre = fields.Float(string="Montant Chiffre", required=True)
-    montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre", store=True)
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
     # ---------------------------------------Computed Fields----------------------------------
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
+    montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre", store=True)
+
     formated_year = fields.Char(compute='_year_withou_comma', string="Annee", store=False)
 
     # ---------------------------SQL Constraints----------------------------------------

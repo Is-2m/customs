@@ -10,3 +10,10 @@ finance.access_paragraph,access_paragraph,finance.model_finance_paragraph,base.g
 finance.access_ligne,access_ligne,finance.model_finance_ligne,base.group_user,1,1,1,1
 finance.access_engagement,access_engagement,finance.model_finance_engagement,base.group_user,1,1,1,1
 finance.access_finance_bon_commande,access_finance_bon_commande,finance.model_finance_bon_commande,base.group_user,1,1,1,1
+
+finance.access_finance_produit,access_finance_produit,finance.model_finance_produit,base.group_user,1,1,1,1
+finance.access_finance_service,access_finance_service,finance.model_finance_service,base.group_user,1,1,1,1
+finance.access_finance_payment,access_finance_payment,finance.model_finance_payment,base.group_user,1,1,1,1
+finance.access_finance_engagement_produit,access_finance_engagement_produit,finance.model_finance_engagement_produit,base.group_user,1,1,1,1
+finance.access_finance_fournisseur,access_finance_fournisseur,finance.model_finance_fournisseur,base.group_user,1,1,1,1
+finance.access_finance_engagement_service,access_finance_engagement_service,finance.model_finance_engagement_service,base.group_user,1,1,1,1

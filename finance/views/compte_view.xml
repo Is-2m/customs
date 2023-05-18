@@ -11,9 +11,11 @@
                         <group>
                             <group>
                                 <field name="num_compte"/>
-                                <field name="name"/>
                                 <field name="type"/>
-
+                            </group>
+                            <group>
+                                <field name="name"/>
+                                <field name="bank_name"/>
                             </group>
                         </group>
                     </sheet>

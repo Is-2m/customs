@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 
 class Article(models.Model):
@@ -17,8 +17,25 @@ class Article(models.Model):
     ]
 
     def create_paragraph(self):
+        codei = self.env.context.get('codei')
+        labeli = self.env.context.get('labeli')
+        # print(codei)
+        # print("label")
+        # print(labeli)
         self.env['finance.paragraph'].create({
-            'code': 'New Paragraph',
-            'label': 'New Paragraph Label',
+            'code': codei,
+            'label': labeli,
             'article_id': self.id
         })
+
+    # @api.model
+    # def create_graph(self, code, label):
+    #     fields.Command.create({
+    #
+    #     })
+
+        # self.env['finance.paragraph'].create({
+        #     'code': code,
+        #     'label': label,
+        #     'article_id': self.id
+        # })

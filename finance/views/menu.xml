@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem id="gestion_fn_menu" name="Finance" sequence="0"
-    >
-
-        <menuitem id="options_menu" name="Recette" sequence="0"
-        />
+    <menuitem id="gestion_fn_menu" name="Finance" sequence="0">
+        <menuitem id="options_menu" name="Recette" sequence="0"/>
     </menuitem>
+
     <menuitem id="gestion_ligne_menu" name="Gestion Lignes" parent="finance.gestion_fn_menu" sequence="1"/>
     <menuitem id="gestion_payment_menu" name="Gestion Payments" parent="gestion_fn_menu" sequence="2"/>
+    <menuitem id="gestion_prod_serv_menu" name="Biens et Services " parent="gestion_fn_menu" sequence="3"/>
 
     <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
               sequence="0"/>
@@ -25,8 +24,12 @@
 
     <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement"
               sequence="0"/>
-    <menuitem id="bon_commande_menu_action" name="Bon Comandes" parent="gestion_payment_menu" action="finance.bon_commande_model_action"
+    <menuitem id="bon_commande_menu_action" name="Bon Commandes" parent="gestion_payment_menu"
+              action="finance.bon_commande_model_action"
               sequence="1"/>
+
+    <menuitem id="fournisseur_menu_action" name="Fournisseurs" parent="gestion_prod_serv_menu"
+              action="finance.fournisseur_act_window" sequence="0"/>
 
 </odoo>
 

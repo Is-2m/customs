@@ -25,6 +25,8 @@
         'views/engagement_views.xml',
         'views/bon_commande_view.xml',
         'views/piece_jointe_view.xml',
+        'views/fournisseur_view.xml',
+        'views/engagement_produit_view.xml',
         'views/menu.xml',
         'reports/report_action.xml',
         'reports/order_recette_report.xml',

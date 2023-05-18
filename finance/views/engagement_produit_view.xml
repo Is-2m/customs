@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="finance_engagement_produit_form_view" model="ir.ui.view">
+            <field name="name">finance_engagement_produit.form</field>
+            <field name="model">finance.engagement_produit</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="produit_id"/>
+                                <field name="product_uni_price" string="Prix HT"/>
+                            </group>
+                            <group>
+                                <field name="quantity" string="Quantité"/>
+                                <field name="product_total_price" string="Total HT"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <sheet>
+                        <notebook>
+                            <page string="Produit">
+                                <field name="produit_id">
+                                    <tree type="tree">
+                                        <field name="name"/>
+                                        <field name="description"/>
+                                        <field name="prix"/>
+                                        <field name="fournisseur_id"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="finance_engagement_produit_tree_view" model="ir.ui.view">
+            <field name="name">finance_engagement_produit.tree</field>
+            <field name="model">finance.engagement_produit</field>
+            <field name="arch" type="xml">
+                <tree string="Produits">
+                    <field name="produit_id" string="Designation"/>
+                    <field name="quantity" string="Quantité"/>
+                    <field name="product_uni_price" string="Prix Unitaire HT"/>
+                    <field name="product_total_price" string="Total HT"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="finance_engagement_produit_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">finance_engagement_produit.search</field>-->
+        <!--            <field name="model">finance.engagement_produit</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="finance_engagement_produit_act_window" model="ir.actions.act_window">
+            <field name="name">ModelTitle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.engagement_produit</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+        <!--        <menuitem name="ModelTitle" id="finance_engagement_produit_menu" parent="your_root_menu"-->
+        <!--                  action="finance_engagement_produit_act_window"/>-->
+
+    </data>
+</odoo>

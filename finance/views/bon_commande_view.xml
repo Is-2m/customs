@@ -16,18 +16,8 @@
 <!--        <record id="view_bon_commande_tree" model="ir.ui.view">-->
 <!--            <field name="name">bon_commande.tree</field>-->
 <!--            <field name="model">finance.bon.commande</field>-->
-<!--            &lt;!&ndash;            <field name="inherit_id" ref="view_engagement_tree"/>&ndash;&gt;-->
 <!--            <field name="arch" type="xml">-->
 
-
-
-<!--                                <tree>-->
-<!--                                    <field name="ligne_id" width="1" string="Ligne"/>-->
-<!--                                    <field name="date_engagement"  width="1" />-->
-<!--                                    <field name="montant"  width="1" />-->
-<!--                                    <field name="kda" width="1" string="KDA"/>-->
-
-<!--                                </tree>-->
 <!--            </field>-->
 <!--        </record>-->
         <record id="bon_commande_model_action" model="ir.actions.act_window">
