@@ -11,12 +11,12 @@
     </record>
     <record id="bon_com_report_act" model="ir.actions.report">
         <field name="name">Bon Commande</field>
-        <field name="model">finance.ordre.recette</field>
+        <field name="model">finance.bon.commande</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">finance.bon_com_report</field>
         <field name="report_file">finance.bon_com_report</field>
 
-        <field name="binding_model_id" ref="model_finance_ordre_recette"/>
+        <field name="binding_model_id" ref="model_finance_bon_commande"/>
         <field name="binding_type">report</field>
     </record>
     <record id="or_pay_report_act" model="ir.actions.report">

@@ -5,6 +5,7 @@
         <field name="model">finance.engagement</field>
         <field name="arch" type="xml">
             <tree string="Engagements">
+                <field name="code"/>
                 <field name="montant"/>
                 <field name="date_engagement"/>
                 <field name="ligne_id"/>
@@ -20,10 +21,12 @@
             <form string="Engagement">
                 <sheet>
                     <group>
+                        <field name="code"/>
                         <field name="montant"/>
+                    </group>
+                    <group>
                         <field name="date_engagement"/>
                         <field name="ligne_id"/>
-
                     </group>
                 </sheet>
                 <sheet>

@@ -27,38 +27,36 @@
                             <table style="float: right; margin: 0;">
                                 <tr class="border-all">
                                     <td class="border-all">Article</td>
-                                    <td class="border-all"><span>911</span></td>
+                                    <td class="border-all"><span t-field="doc.article"/></td>
                                 </tr>
                                 <tr>
                                     <td class="border-all">Paragraph</td>
-                                    <td class="border-all"><span>10</span></td>
+                                    <td class="border-all"><span t-field="doc.paragraphe"/></td>
                                 </tr>
                                 <tr>
                                     <td class="border-all">Ligne</td>
-                                    <td class="border-all"><span>72</span></td>
+                                    <td class="border-all"><span t-field="doc.ligne"/></td>
                                 </tr>
                                 <tr>
                                     <td class="border-all">Rubrique</td>
                                     <td class="border-all">
-                                        <span>
-                                            Achat de material technique, scientifique et audiovisuel
-                                        </span>
+                                        <span t-field="doc.ligne_label"/>
                                     </td>
                                 </tr>
                             </table>
                             <center style="padding-top: 20px; clear: both">
                                 <h3 style="font-weight: bold; margin: 8px">Bon Commande</h3>
-                                <p style="margin: 8px">Numero: 44/2022</p>
-                                <p style="margin: 8px">Date: 12/10/2022</p>
+                                <p style="margin: 8px">Numero: <span t-field="doc.code_year"/></p>
+                                <p style="margin: 8px">Date: <span t-field="doc.date"/></p>
                             </center>
                             <table style="margin-top: 20px" class="hide-all-borders" width="100%">
                                 <tr>
                                     <td class="hide-all-borders">Fournisseur</td>
-                                    <td class="hide-all-borders">: <span>STE FES TRIOMPHE</span></td>
+                                    <td class="hide-all-borders">: <span t-field="doc.fournisseur"/></td>
                                 </tr>
                                 <tr>
                                     <td class="hide-all-borders">Adresse</td>
-                                    <td class="hide-all-borders">: <span>Av Yarmouk imm 10 n°9 VN Fes</span></td>
+                                    <td class="hide-all-borders">: <span t-field="doc.fournisseur_adresse"/></td>
                                 </tr>
                             </table>
                             <table width="100%">
@@ -69,37 +67,32 @@
                                     <th class="border-all" style="width: 20%">PU HT</th>
                                     <th class="border-all" style="width: 20%">TOTALE HT</th>
                                 </tr>
-                                <tr>
-                                    <td class="border-all text-center">1</td>
-                                    <td class="border-all">
-                                        Videoprojecteur 3LCD Epson avec connexion sans fil wifi b/g/n
-                                    </td>
-                                    <td class="border-all text-center">1</td>
-                                    <td class="border-all text-right">95000</td>
-                                    <td class="border-all text-right">95000</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-all text-center">2</td>
-                                    <td class="border-all">Appareil photo numerique professionnel</td>
-                                    <td class="border-all text-center">1</td>
-                                    <td class="border-all text-right">4500</td>
-                                    <td class="border-all text-right">4500</td>
-                                </tr>
+                                <t t-foreach="doc.engagement_id.engagement_produit_ids" t-as="p">
+                                    <tr>
+                                        <td class="border-all text-center"><span t-field="p.produit_id"/></td>
+                                        <td class="border-all">
+                                            <span t-field="p.product_designation"/>
+                                        </td>
+                                        <td class="border-all text-center"><span t-field="p.quantity"/></td>
+                                        <td class="border-all text-right"><span t-field="p.product_uni_price"/></td>
+                                        <td class="border-all text-right"><span t-field="p.product_total_price"/></td>
+                                    </tr>
+                                </t>
+
                                 <tr>
                                     <td class="border-all" rowspan="3" colspan="3">
-                                        Destination et utilisation: Achat de materiel audiovisuel au profit de
-                                        l'ENSAF
+                                        Destination et utilisation : <span t-field="doc.description"/>
                                     </td>
                                     <td class="border-all">TOTAL HT</td>
-                                    <td class="border-all text-right">14000</td>
+                                    <td class="border-all text-right"><span t-field="doc.montant"/></td>
                                 </tr>
                                 <tr>
                                     <td class="border-all">TVA 20%:</td>
-                                    <td class="border-all text-right">2800</td>
+                                    <td class="border-all text-right"><span t-field="doc.tva_montant"/></td>
                                 </tr>
                                 <tr>
                                     <td class="border-all">TOTAL TTC</td>
-                                    <td class="border-all text-right">16800</td>
+                                    <td class="border-all text-right"><span t-field="doc.total_ttc"/></td>
                                 </tr>
                             </table>
                             <table width="100%" class="hide-all-borders">
@@ -112,15 +105,11 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="hide-all-borders"><span>SEIZE MILLE HUIT CENTS</span></td>
+                                    <td class="hide-all-borders"><span t-field="doc.total_ttc_letter"/></td>
                                     <td class="hide-all-borders">
                                         <i
-                                        >La facture doit etre etablire en 5 Certainly elsewhere my do
-                                            allowance at. The address farther six hearted hundred towards
-                                            husband. Are securing off occasion remember daughter replying. Held
-                                            that feel his see own yet. Strangers ye to he sometimes propriety
-                                            in. She right plate seven has. Bed who perceive judgment did
-                                            marianne.
+                                        > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et feugiat
+                                            lorem. In blandit finibus nunc et maximus. Phasellus nisi odio,
                                         </i>
                                     </td>
                                 </tr>

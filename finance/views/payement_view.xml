@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="bon_commande_form_view" model="ir.ui.view">
+            <field name="name">finance_payment_form</field>
+            <field name="model">finance.payment</field>
+            <field name="arch" type="xml">
+                <form string="Payment">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="compte_id"/>
+                                <field name="date"/>
+                            </group>
+                            <group>
+                                <field name="engagement_id"/>
+                                <field name="montant"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bon_commande_tree_view" model="ir.ui.view">
+            <field name="name">finance.payment.tree</field>
+            <field name="model">finance.payment</field>
+            <field name="arch" type="xml">
+                <tree string="Payment">
+                    <field name="code_year"/>
+                    <field name="full_ligne_code"/>
+                    <field name="engagement_id"/>
+                    <field name="montant" string="Total HT"/>
+                    <field name="tva_montant" string="TVA %20"/>
+                    <field name="total_ttc" string="Total TTC"/>
+                    <field name="fournisseur"/>
+                    <field name="compte_id"/>
+                    <field name="date"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="bon_commande_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">finance.bon_commande.search</field>-->
+        <!--            <field name="model">finance.payment</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="Payment">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="bon_commande_act_window" model="ir.actions.act_window">
+            <field name="name">Paiement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Payment.
+                </p>
+            </field>
+        </record>
+
+        <!--        <menuitem name="Payment" id="bon_commande_menu" parent="" action="bon_commande_act_window"/>-->
+
+    </data>
+</odoo>

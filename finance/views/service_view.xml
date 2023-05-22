@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="service_form_view" model="ir.ui.view">
+            <field name="name">finance_service_form</field>
+            <field name="model">finance.service</field>
+            <field name="arch" type="xml">
+                <form string="ModelTitle">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                            <group>
+                                <field name="prix"/>
+                                <field name="fournisseur_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="service_tree_view" model="ir.ui.view">
+            <field name="name">finance_service_tree</field>
+            <field name="model">finance.service</field>
+            <field name="arch" type="xml">
+                <tree string="Services">
+                    <field name="name"/>
+                    <field name="description"/>
+                    <field name="prix"/>
+                    <field name="fournisseur_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="service_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">finance_service_search</field>-->
+        <!--            <field name="model">finance.service</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="Service">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
+        <!--                                context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="service_act_window" model="ir.actions.act_window">
+            <field name="name">Service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.service</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Service.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

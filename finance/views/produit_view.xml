@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="produit_form_view" model="ir.ui.view">
+            <field name="name">finance_produit_form</field>
+            <field name="model">finance.produit</field>
+            <field name="arch" type="xml">
+                <form string="Produit">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" string="Designation"/>
+                                <field name="description" string="Description"/>
+                                <!--                            <field name="create_date" />-->
+                            </group>
+                            <group>
+                                <field name="prix" string="Prix"/>
+
+                                <field name="fournisseur_id" string="Fournisseur"/>
+                                <!--                            <field name="example_field"/>-->
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="produit_tree_view" model="ir.ui.view">
+            <field name="name">finance_produit_tree</field>
+            <field name="model">finance.produit</field>
+            <field name="arch" type="xml">
+                <tree string="Produits">
+                    <field name="name" string="Designation"/>
+                    <field name="description" string="Description"/>
+                    <field name="prix" string="Prix"/>
+                    <field name="fournisseur_id" string="Fournisseur"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--        <record id="produit_search_view" model="ir.ui.view">-->
+        <!--            <field name="name">finance.produit.search</field>-->
+        <!--            <field name="model">finance.produit</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search string="ModelTitle">-->
+        <!--                    <group expand="1" string="Group By">-->
+        <!--                        <filter string="Example Field" name="example_field" domain="[]" context="{'group_by':'example_field'}"/>-->
+        <!--                    </group>-->
+        <!--               </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <record id="produit_act_window" model="ir.actions.act_window">
+            <field name="name">ModelTitle</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.produit</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+
+
+
+    </data>
+</odoo>

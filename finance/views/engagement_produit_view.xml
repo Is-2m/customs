@@ -19,20 +19,6 @@
                             </group>
                         </group>
                     </sheet>
-                    <sheet>
-                        <notebook>
-                            <page string="Produit">
-                                <field name="produit_id">
-                                    <tree type="tree">
-                                        <field name="name"/>
-                                        <field name="description"/>
-                                        <field name="prix"/>
-                                        <field name="fournisseur_id"/>
-                                    </tree>
-                                </field>
-                            </page>
-                        </notebook>
-                    </sheet>
                 </form>
             </field>
         </record>
