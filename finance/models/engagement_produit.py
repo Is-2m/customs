@@ -21,7 +21,6 @@ class EngagementProduit(models.Model):
     product_code = fields.Integer(compute="_get_product_code", store=False)
 
     # ---------------------------------------------------------------------------------------------
-
     @api.depends('produit_id.prix')
     def _get_product_price(self):
         for o in self:

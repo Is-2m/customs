@@ -9,6 +9,6 @@ class Produit(models.Model):
     fournisseur_id = fields.Many2one("finance.fournisseur", "Fournisseur")
     # ------------------------------------------------------------------------------------
 
-    name = fields.Char("Designation")
-    prix = fields.Float("Prix Unitaire")
-    description = fields.Char("Description")
+    name = fields.Char(string="Designation")
+    prix = fields.Float(string="Prix Unitaire")
+    description = fields.Char(string="Description")

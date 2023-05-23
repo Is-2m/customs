@@ -31,6 +31,8 @@
         'views/service_view.xml',
         'views/payement_view.xml',
         'views/menu.xml',
+        'views/product_view.xml',
+        'views/service_view.xml',
         'reports/report_action.xml',
         'reports/order_recette_report.xml',
         'reports/bon_commande_report.xml',

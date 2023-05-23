@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <record id="fournisseur_form_view" model="ir.ui.view">
             <field name="name">finance_fournisseur_form</field>
             <field name="model">finance.fournisseur</field>
