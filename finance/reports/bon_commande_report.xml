@@ -69,7 +69,7 @@
                                 </tr>
                                 <t t-foreach="doc.engagement_id.engagement_produit_ids" t-as="p">
                                     <tr>
-                                        <td class="border-all text-center"><span t-field="p.produit_id"/></td>
+                                        <td class="border-all text-center"><span t-field="p.produit_id.id"/></td>
                                         <td class="border-all">
                                             <span t-field="p.product_designation"/>
                                         </td>
@@ -108,9 +108,9 @@
                                     <td class="hide-all-borders"><span t-field="doc.total_ttc_letter"/></td>
                                     <td class="hide-all-borders">
                                         <i
-                                        > Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam et feugiat
-                                            lorem. In blandit finibus nunc et maximus. Phasellus nisi odio,
-                                        </i>
+                                        >La facture doit être établie en
+                                            5 exemplaires, arrêtée en toutes lettres et signée. Rappeler le n° du
+                                            présent B.C sur la facture. </i>
                                     </td>
                                 </tr>
                             </table>

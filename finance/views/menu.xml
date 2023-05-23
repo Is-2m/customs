@@ -27,6 +27,8 @@
     <menuitem id="bon_commande_menu_action" name="Bon Commandes" parent="gestion_payment_menu"
               action="finance.bon_commande_model_action"
               sequence="1"/>
+    <menuitem name="Ordre Paiement" id="ordre_payment_menu" parent="gestion_payment_menu"
+                  action="ordre_payment_act_window" sequence="2"/>
 
     <menuitem name="Produits" id="produit_menu_action" parent="finance.gestion_prod_serv_menu"
               action="produit_act_window"

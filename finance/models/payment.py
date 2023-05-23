@@ -5,18 +5,20 @@ from num2words import num2words
 class Payment(models.Model):
     _name = 'finance.payment'
     _description = 'Mother Table for all payment types'
+    _rec_name = 'code_year'
 
     # ----------------------------------------------Relations-----------------------------------------
     compte_id = fields.Many2one('finance.compte', string='Compte')
     engagement_id = fields.Many2one('finance.engagement', string='Engagement')
+    order_payment_ids = fields.One2many('finance.ordre_payment', 'payment_id')
     # ------------------------------------------------------------------------------------------------
     code = fields.Integer()
-    montant = fields.Float(string="Montant")
     date = fields.Date(string="Date", default=lambda self: (fields.Datetime.today()))
     description = fields.Char(string="Destination et utilisation")
 
     # --------------------------------Computed---------------------------------
-    code_year = fields.Char(string='Engagement Code', compute='_get_engagement_code_by_year', readonly=True)
+    montant = fields.Float(string="Montant", compute='_get_total_ht', readonly=True, store=True)
+    code_year = fields.Char(string='Code', compute='_get_code_by_year', readonly=True)
     ligne = fields.Integer(string='Ligne', compute='_get_ligne', readonly=True)
     ligne_label = fields.Char(string='Ligne Rubrique', compute='_get_ligne_rubrique', readonly=True)
     paragraphe = fields.Integer(string='Paragraphe', compute='_get_paragraphe', readonly=True)
@@ -44,10 +46,15 @@ class Payment(models.Model):
                     rec.total_ttc_letter = f"{words} DH {num2words(decimal_part, lang='fr')} centimes".upper()
 
     @api.depends('code', 'date')
-    def _get_engagement_code_by_year(self):
-        for eng in self:
-            code_by_year = f"{eng.code}/{eng.date.year}"
-            eng.code_year = code_by_year
+    def _get_code_by_year(self):
+        for pay in self:
+            code_by_year = f"{pay.code}/{pay.date.year}"
+            pay.code_year = code_by_year
+
+    @api.depends('engagement_id.montant')
+    def _get_total_ht(self):
+        for pay in self:
+            pay.montant = pay.engagement_id.montant
 
     @api.depends('engagement_id.ligne_id')
     def _get_art_para_ligne(self):
@@ -94,9 +101,11 @@ class Payment(models.Model):
     @api.depends('engagement_id.engagement_produit_ids.product_fournisseur')
     def _get_fournisseur_produit(self):
         for eng in self:
-            eng.fournisseur = eng.engagement_id.engagement_produit_ids.product_fournisseur
+            for p in eng.engagement_id.engagement_produit_ids:
+                eng.fournisseur = p.product_fournisseur
 
     @api.depends('engagement_id.engagement_produit_ids.product_fournisseur')
     def _get_adresse_fournisseur_produit(self):
         for eng in self:
-            eng.fournisseur_adresse = eng.engagement_id.engagement_produit_ids.produit_id.fournisseur_id.adresse
+            for p in eng.engagement_id.engagement_produit_ids:
+                eng.fournisseur_adresse = p.produit_id.fournisseur_id.adresse

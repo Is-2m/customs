@@ -2,15 +2,17 @@ from odoo import fields, models, api
 from num2words import num2words
 
 
-class ordre_recette(models.Model):
+class OrdreRecette(models.Model):
     _name = "finance.ordre.recette"
     _description = "Ordre Recette Enregistrement"
 
-    # ------------------------------ Relations -----------------------
+    # ------------------------------------ Relations --------------------------------
     nature_id = fields.Many2one('finance.ligne.recette', 'Nature Recette', required=True)
     debiteur_id = fields.Many2one('finance.debiteur', string="Debiteur ID", required=True)
     compte_id = fields.Many2one('finance.compte', string='Comptes', required=True)
-    # ------------------------------ Fields -----------------------
+    piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
+
+    # ------------------------------------- Fields ----------------------------------
 
     facturation = fields.Char(string="Facturation n")
     description = fields.Char(string="Explication")
@@ -24,7 +26,6 @@ class ordre_recette(models.Model):
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
                              ("subvention d'investissement", "Subvention d'investissement")], string='Type',
                             required=True)
-    piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
     # ---------------------------------------Computed Fields----------------------------------
     total_montant_chiffre = fields.Float(compute='_compute_total_montant_chiffre', string="Total", store=True)
     montant_lettre = fields.Char(compute="_compute_montant_lettre", string="Montant Lettre", store=True)

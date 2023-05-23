@@ -30,6 +30,7 @@
         'views/produit_view.xml',
         'views/service_view.xml',
         'views/payement_view.xml',
+        'views/ordre_payment_view.xml',
         'views/menu.xml',
         'reports/report_action.xml',
         'reports/order_recette_report.xml',

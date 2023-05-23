@@ -17,3 +17,4 @@ finance.access_finance_payment,access_finance_payment,finance.model_finance_paym
 finance.access_finance_engagement_produit,access_finance_engagement_produit,finance.model_finance_engagement_produit,base.group_user,1,1,1,1
 finance.access_finance_fournisseur,access_finance_fournisseur,finance.model_finance_fournisseur,base.group_user,1,1,1,1
 finance.access_finance_engagement_service,access_finance_engagement_service,finance.model_finance_engagement_service,base.group_user,1,1,1,1
+finance.access_finance_ordre_payment,access_finance_ordre_payment,finance.model_finance_ordre_payment,base.group_user,1,1,1,1
