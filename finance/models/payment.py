@@ -2,15 +2,16 @@ from odoo import fields, models, api
 from num2words import num2words
 
 
-class Payment(models.Model):
+class Payment(models.AbstractModel):
     _name = 'finance.payment'
     _description = 'Mother Table for all payment types'
     _rec_name = 'code_year'
 
+    id = fields.Id(string="ID")
     # ----------------------------------------------Relations-----------------------------------------
     compte_id = fields.Many2one('finance.compte', string='Compte')
     engagement_id = fields.Many2one('finance.engagement', string='Engagement')
-    order_payment_ids = fields.One2many('finance.ordre_payment', 'payment_id')
+    # order_payment_ids = fields.One2many('finance.ordre_payment', 'payment_id')
     # ------------------------------------------------------------------------------------------------
     code = fields.Integer()
     date = fields.Date(string="Date", default=lambda self: (fields.Datetime.today()))
@@ -29,6 +30,7 @@ class Payment(models.Model):
     fournisseur = fields.Char(string="Fournisseur", compute='_get_fournisseur_produit')
     fournisseur_adresse = fields.Char(string="Fournisseur", compute='_get_adresse_fournisseur_produit')
     full_ligne_code = fields.Char(string="Ligne", compute='_get_art_para_ligne')
+    display_name = fields.Char("Display_name")
 
     @api.depends('total_ttc')
     def _get_total_ttc_lettre(self):

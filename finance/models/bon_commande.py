@@ -6,7 +6,7 @@ class BonCommande(models.Model):
     _description = 'Description'
     _inherit = "finance.payment"
 
-    # order_payment_ids = fields.One2many('finance.ordre_payment', 'payment_id')
+    order_payment_ids = fields.One2many('finance.ordre_payment', 'bon_com_id')
 
 
     # ---------------------------------------------Computed---------------------------------------

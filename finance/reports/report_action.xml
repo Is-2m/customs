@@ -21,12 +21,12 @@
     </record>
     <record id="or_pay_report_act" model="ir.actions.report">
         <field name="name">Ordre Paiement</field>
-        <field name="model">finance.ordre.recette</field>
+        <field name="model">finance.ordre_payment</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">finance.or_pay_report</field>
         <field name="report_file">finance.or_pay_report</field>
 
-        <field name="binding_model_id" ref="model_finance_ordre_recette"/>
+        <field name="binding_model_id" ref="model_finance_ordre_payment"/>
         <field name="binding_type">report</field>
     </record>
 </odoo>

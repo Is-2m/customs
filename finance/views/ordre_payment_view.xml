@@ -16,7 +16,7 @@
 
                             </group>
                             <group>
-                                <field name="payment_id"/>
+                                <field name="bon_com_id"/>
                                 <field name="montant"/>
                             </group>
 
@@ -43,7 +43,7 @@
             <field name="arch" type="xml">
                 <tree string="Ordre Paiement">
                     <field name="code_year" string="Code"/>
-                    <field name="payment_id" string="Paiement Code"/>
+                    <field name="bon_com_id" string="Paiement Code"/>
                     <field name="full_ligne_code"/>
                     <field name="date"/>
                     <field name="montant"/>
