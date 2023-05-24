@@ -28,6 +28,7 @@ class OrderPayment(models.Model):
     fournisseur_adresse = fields.Char(string="Fournisseur", compute='_get_adresse_fournisseur_produit')
     full_ligne_code = fields.Char(string="Ligne", compute='_get_art_para_ligne')
 
+
     @api.depends('montant')
     def _get_montant_lettre(self):
         for rec in self:
@@ -101,3 +102,8 @@ class OrderPayment(models.Model):
                     pay.fournisseur_adresse = p.produit_id.fournisseur_id.adresse if p.produit_id.fournisseur_id else ''
             else:
                 pay.fournisseur_adresse = ""
+
+    @api.depends('date')
+    def get_last_two_dig(self):
+        last_2_digits = self.date.year % 100
+        return last_2_digits

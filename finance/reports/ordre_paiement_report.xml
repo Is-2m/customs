@@ -8,7 +8,8 @@
                             <table width="100%" style="margin-top:0 " class="hide-all-borders">
                                 <tr>
                                     <td class="hide-all-borders">C/Cn°42172/TR Fes</td>
-                                    <td class="hide-all-borders text-right">EXERCICE: 2022</td>
+                                    <td class="hide-all-borders text-right">EXERCICE: <span
+                                            t-esc="doc.get_last_two_dig()"/></td>
                                 </tr>
                             </table>
                             <center style="padding-top: 10px; clear: right">
@@ -18,7 +19,8 @@
                                 <tr>
                                     <td class="border-all">
                                         <div style="float: left">N°</div>
-                                        <span style="float: right; padding-right: 10px">/22</span>
+                                        <span style="float: right; padding-right: 10px"><span t-field="doc.code"/>/<span
+                                                t-esc="doc.get_last_two_dig()"/></span>
                                     </td>
                                 </tr>
                             </table>
@@ -41,28 +43,27 @@
                                 </tr>
                                 <tr>
                                     <td class="border-all">
-                                        <span>NORD PROTECTION </span>
+                                        <span t-field="doc.fournisseur"/>
                                         <br/>
-                                        24 lots Alami et Laaraki Dokkarat Av des Far Fés
+                                        <div t-field="doc.fournisseur_adresse"/>
                                     </td>
                                     <td class="border-all">
-                                        <span> Entretien et vérification ‘extincteurs </span>
-                                        Facture n°: 2052/2022
+                                        <t t-foreach="doc.bon_com_id.engagement_id.engagement_produit_ids" t-as="p">
+                                            <span t-esc="p.product_designation"/><br/>
+                                        </t><br/>
+                                        Facture n°: <span t-esc="doc.facture"/>
                                     </td>
-                                    <td class="border-all">2196.00</td>
+                                    <td class="border-all"><span t-esc="doc.montant"/></td>
                                     <td class="border-all">
-                                        <span>Devis</span><br/>
-                                        <span>TCD</span><br/>
-                                        <span>BC</span><br/>
-                                        <span>BL</span><br/>
-                                        <span>BR</span><br/>
-                                        <span>Facture</span>
+                                        <t t-foreach="doc.piece_jointe_ids" t-as="p">
+                                            -<span t-field="p.name"/><br/>
+                                        </t>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="hide-border-bottom hide-border-left"></td>
                                     <td class="border-all">TOTAL</td>
-                                    <td class="border-all">2196.00</td>
+                                    <td class="border-all"><span t-esc="doc.montant"/></td>
                                     <td class="hide-border-right hide-border-bottom"></td>
                                 </tr>
                             </table>
@@ -88,16 +89,17 @@
                                 </tr>
                                 <tr>
                                     <td class="border-all" style="padding: 30px; width: 70">
-                                        <span>ENTRETIEN ET REPARATION DES BIENS IMMOBILIERS</span>
+                                        <span t-esc="doc.ligne_label"/>
                                     </td>
                                     <td class="border-all text-center" style="padding: 30px; width: 10%">
-                                        <span>920</span>
+                                        <span t-esc="doc.article"/>
                                     </td>
                                     <td class="border-all text-center" style="padding: 30px; width: 10%">
-                                        <span>10</span>
+                                        <span t-esc="doc.paragraphe"/>
+
                                     </td>
                                     <td class="border-all text-center" style="padding: 30px; width: 10%">
-                                        <span>46</span>
+                                        <span t-esc="doc.ligne"/>
                                     </td>
                                 </tr>
                             </table>
@@ -105,7 +107,7 @@
                                 Arrêté le présent Ordre de Paiement à la somme de:
                             </p>
                             <p style="margin: 4px">
-                                <span>Arrêté le présent Ordre de Paiement à la somme de:</span>
+                                <span t-esc="doc.montant_letter"/>
                             </p>
                             <table width="100%">
                                 <tr class="border-all">
@@ -127,14 +129,14 @@
                                 <tr class="border-all">
                                     <td class="hide-border-bottom">au compte n°:</td>
                                     <td class="hide-border-bottom hide-border-left">
-                                        <span>127270212115630386000155</span>
+                                        <span t-esc="doc.num_compte"/>
                                     </td>
                                     <td rowspan="4" class="border-all"></td>
                                     <td rowspan="4" class="border-all"></td>
                                 </tr>
                                 <tr class="border-all">
                                     <td class="hide-border-bottom">ouvert chez :</td>
-                                    <td class="hide-border-bottom hide-border-left"><span>BP Fes</span></td>
+                                    <td class="hide-border-bottom hide-border-left"><span t-esc="doc.bank_name"/></td>
                                 </tr>
                                 <tr class="border-all">
                                     <td class="hide-border-bottom">Ordre de Virment:</td>
