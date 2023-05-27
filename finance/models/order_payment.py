@@ -28,7 +28,6 @@ class OrderPayment(models.Model):
     fournisseur_adresse = fields.Char(string="Fournisseur", compute='_get_adresse_fournisseur_produit')
     full_ligne_code = fields.Char(string="Ligne", compute='_get_art_para_ligne')
 
-
     @api.depends('montant')
     def _get_montant_lettre(self):
         for rec in self:
@@ -107,3 +106,15 @@ class OrderPayment(models.Model):
     def get_last_two_dig(self):
         last_2_digits = self.date.year % 100
         return last_2_digits
+
+    @api.onchange('montant')
+    def a(self):
+        op_total = 0
+        for op in self:
+            order = op.bon_com_id
+            op_total = sum(order.order_payment_ids.mapped('montant'))
+            resting_total = order.montant - op_total
+            if resting_total == 0:
+                op.montant = 0
+            elif op.montant > resting_total:
+                op.montant = resting_total
