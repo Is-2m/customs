@@ -1,4 +1,5 @@
-from odoo import models,fields
+from odoo import models, fields, api
+
 
 class Paragraph(models.Model):
     _name = 'finance.paragraph'
@@ -11,13 +12,19 @@ class Paragraph(models.Model):
 
     article_id = fields.Many2one('finance.article', string='Article', ondelete='cascade')
     ligne_ids = fields.One2many('finance.ligne', 'paragraph_id', string='Lignes')
+    full_code = fields.Char(string="Paragraphe", compute="_get_full_paragraphe")
 
-    _sql_constraints = [
-        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
-    ]
+    # _sql_constraints = [
+    #     ('unique_my_field', 'unique(code)', 'My Field must be unique!')
+    # ]
     def create_ligne(self):
         self.env['finance.ligne'].create({
             'code': 'New Ligne',
             'label': 'New Ligne Label',
             'paragraph_id': self.id
         })
+
+    @api.depends('article_id')
+    def _get_full_code(self):
+        for para in self:
+            para.full_code = f"{para.article_id.code}/{para.code}"

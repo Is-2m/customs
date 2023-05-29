@@ -12,9 +12,9 @@ class Article(models.Model):
 
     paragraph_ids = fields.One2many('finance.paragraph', 'article_id', string='Paragraphs')
 
-    _sql_constraints = [
-        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
-    ]
+    # _sql_constraints = [
+    #     ('unique_my_field', 'unique(code)', 'My Field must be unique!')
+    # ]
 
     def create_paragraph(self):
         codei = self.env.context.get('codei')

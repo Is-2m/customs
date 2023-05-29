@@ -13,7 +13,7 @@
       <field name="model">finance.paragraph</field>
       <field name="arch" type="xml">
         <tree>
-          <field name="code" size="1" />
+          <field name="full_code" size="1" />
           <field name="label" size="3"/>
         </tree>
       </field>
@@ -28,7 +28,7 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="code"/>
+                            <field name="code" default_focus="1"/>
                             <field name="label"/>
                             <field name="article_id"/>
                         </group>

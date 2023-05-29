@@ -1,17 +1,29 @@
 from num2words import num2words
 from odoo import models, fields, api
 
+from num2words import num2words
+from odoo import models, fields, api
 
-class Engagement(models.Model):
+
+class Engagement(models.AbstractModel):
     _name = 'finance.engagement'
     _rec_name = 'code_year'
 
-    id = fields.Id("ID")
+    id = fields.Id()
     code = fields.Integer(string='Code')
-    date = fields.Date(string='Date Engagement', default=lambda self: (fields.Date.today()))
+    date = fields.Date(string='Date Engagement', default=lambda self: fields.Date.today())
     description = fields.Char(string="Destination et utilisation")
+    # type = fields.Selection(string="Type",
+    #                         selection=[('0', 'Bon Commande'),
+    #                                    ('1', 'Marche'),
+    #                                    ('2', 'Convention'),
+    #                                    ('3', 'Vacation'),
+    #                                    ('4', 'Heures Supplémentaire'),
+    #                                    ('5', 'Déplacement'),
+    #                                    ('6', 'Indemnité Kilométrique'),
+    #                                    ('7', 'Expert')])
     # ---------------------------------------------Relations----------------------------------------------
-    detail_morasse_id = fields.Many2one("finance.detail_morasse", string='Ligne', ondelete="restrict", required=True, )
+    detail_morasse_id = fields.Many2one("finance.detail_morasse", string='Ligne', ondelete="restrict", required=True)
     produit_ids = fields.Many2many("finance.produit", string="Produits")
     engagement_produit_ids = fields.One2many('finance.engagement_produit', 'engagement_id', string="Produits*")
     # payment_ids = fields.One2many('finance.payment', 'engagement_id', string="Paiement*")
@@ -119,3 +131,7 @@ class Engagement(models.Model):
     # for eng in self:
     #     for prod in eng.engagement_produit_ids:
     #         eng.total_price += prod.product_total_price
+    @api.onchange('type')
+    def asa(self):
+        for a in self:
+            print(a.type)

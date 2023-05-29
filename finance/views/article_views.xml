@@ -12,7 +12,7 @@
 
 <!--                    </header>-->
                     <group>
-                        <field name="code"/>
+                        <field name="code" default_focus="1"/>
                         <field name="label"/>
                     </group>
                     <notebook>

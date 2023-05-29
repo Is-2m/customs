@@ -21,41 +21,38 @@
         <field name="name">finance_ordre_recette_form</field>
         <field name="model">finance.ordre.recette</field>
         <field name="arch" type="xml"><form>
-            <group>
-                <group col="2">
-                    <field name="debiteur_id"/>
-                    <field name="compte_id"/>
-                    <field name="year" widget="char"/>
-                </group>
-                <separator/>
-                <group>
-                    <field name="nature_id"/>
-                    <field name="type"/>
-                </group>
-                <separator/>
-                <group>
-                    <field name="facturation"/>
-                    <field name="marche"/>
-                    <field name="contrat"/>
-                    <field name="decision"/>
-                    <field name="ac_banque"/>
-                    <field name="convention"/>
-                </group>
-                <separator/>
-                <group>
-                    <field name="description"/>
-                </group>
-                <separator/>
-                <groupe>
-                    <div style="display: flex; gap: 10rem;">
-                        <label for="montant_chiffre">Montant Chiffre</label>
-                        <field name="montant_chiffre"/>
-                    </div>
-                    <div style="display: flex; gap: 10rem;">
-                        <label for="montant_lettre">Montant en Lettres</label>
-                        <field name="montant_lettre" readonly="True"/>
-                    </div>
-                </groupe>
+            <sheet>
+                    <group>
+                        <group col="2">
+                            <field name="debiteur_id" string="Debiteur"/>
+                            <field name="compte_id"/>
+                            <field name="year" widget="char"/>
+                            <separator/>
+                            <field name="nature_id"/>
+                            <field name="type"/>
+                            <field name="description"/>
+
+                        </group>
+                        <group>
+                            <field name="facturation"/>
+                            <field name="marche"/>
+                            <field name="contrat"/>
+                            <field name="decision"/>
+                            <field name="ac_banque"/>
+                            <field name="convention"/>
+                        </group>
+                        <separator/>
+                        <groupe>
+                            <div style="display: flex; gap: 10rem;">
+                                <label for="montant_chiffre">Montant Chiffre</label>
+                                <field name="montant_chiffre"/>
+                            </div>
+                            <div style="display: flex; gap: 10rem;">
+                                <label for="montant_lettre">Montant en Lettres</label>
+                                <field name="montant_lettre" readonly="True"/>
+                            </div>
+                        </groupe>
+                    </group>
 
                 <notebook>
                     <page string="Pieces Jointes">
@@ -71,7 +68,7 @@
                         </field>
                     </page>
                 </notebook>
-            </group>
+            </sheet>
         </form>
         </field>
     </record>

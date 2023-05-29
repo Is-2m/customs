@@ -9,7 +9,7 @@ class OrdreRecette(models.Model):
     # ------------------------------------ Relations --------------------------------
     nature_id = fields.Many2one('finance.ligne.recette', 'Nature Recette', required=True)
     debiteur_id = fields.Many2one('finance.debiteur', string="Debiteur ID", required=True)
-    compte_id = fields.Many2one('finance.compte', string='Comptes', required=True)
+    compte_id = fields.Many2one('finance.compte', string='Compte', required=True)
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
 
     # ------------------------------------- Fields ----------------------------------

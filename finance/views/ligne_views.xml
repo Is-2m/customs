@@ -5,9 +5,7 @@
         <field name="model">finance.ligne</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="article_code" width="1" string="Article"/>
-                <field name="paragraph_code" width ="1" string="Paragraphe"/>
-                <field name="code" width="1" string="Ligne Code"/>
+                <field name="full_code" width="1" string="Ligne Code"/>
                 <field name="label" width="2" string="Label"/>
             </tree>
         </field>
@@ -20,7 +18,7 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="code"/>
+                        <field name="code" default_focus="1"/>
                         <field name="label"/>
                         <field name="paragraph_id"/>
                     </group>
