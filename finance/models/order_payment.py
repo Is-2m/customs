@@ -84,20 +84,20 @@ class OrderPayment(models.Model):
         for pay in self:
             pay.article = pay.bon_com_id.article
 
-    @api.depends('bon_com_id.engagement_id.engagement_produit_ids.product_fournisseur')
-    def _get_fournisseur_produit(self):
+    @api.depends('bon_com_id.engagement_produit_ids.product_fournisseur')
+    def _get_fournisseur(self):
         for pay in self:
-            if pay.bon_com_id and pay.bon_com_id.engagement_id:
-                for p in pay.bon_com_id.engagement_id.engagement_produit_ids:
+            if pay.bon_com_id:
+                for p in pay.bon_com_id.engagement_produit_ids:
                     pay.fournisseur = p.product_fournisseur if p.product_fournisseur else ''
             else:
                 pay.fournisseur = ""
 
-    @api.depends('bon_com_id.engagement_id.engagement_produit_ids.product_fournisseur')
+    @api.depends('bon_com_id.engagement_produit_ids.product_fournisseur')
     def _get_adresse_fournisseur_produit(self):
         for pay in self:
-            if pay.bon_com_id and pay.bon_com_id.engagement_id:
-                for p in pay.bon_com_id.engagement_id.engagement_produit_ids:
+            if pay.bon_com_id:
+                for p in pay.bon_com_id.engagement_produit_ids:
                     pay.fournisseur_adresse = p.produit_id.fournisseur_id.adresse if p.produit_id.fournisseur_id else ''
             else:
                 pay.fournisseur_adresse = ""
@@ -108,8 +108,19 @@ class OrderPayment(models.Model):
         return last_2_digits
 
     @api.onchange('montant')
-    def a(self):
+    def _regulate_montant(self):
         op_total = 0
+        for op in self:
+            order = op.bon_com_id
+            op_total = sum(order.order_payment_ids.mapped('montant'))
+            resting_total = order.montant - op_total
+            if resting_total == 0:
+                op.montant = 0
+            elif op.montant > resting_total:
+                op.montant = resting_total
+
+    @api.onchange('montant')
+    def _regulate_montant(self):
         for op in self:
             order = op.bon_com_id
             op_total = sum(order.order_payment_ids.mapped('montant'))

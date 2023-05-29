@@ -1,24 +1,25 @@
-from odoo import models, fields,api
+from odoo import models, fields, api
 
 
 class Ligne(models.Model):
     _name = 'finance.ligne'
     _description = 'Ligne Description'
     _rec_name = 'label'
+    _sql_constraints = [
+        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
+    ]
 
     id = fields.Integer(primary_key=True)
     code = fields.Char(required=True, index=True)
     label = fields.Char(required=True)
+    # --------------------------Relations----------------------------------
     paragraph_id = fields.Many2one('finance.paragraph', string='Paragraph', ondelete='cascade')
-    engagement_ids=fields.One2many("finance.engagement","ligne_id",string="Engagements")
+    detail_ids = fields.One2many('finance.detail_morasse', 'ligne_id')
 
-
+    # -------------------------------- Compute ------------------------------
     article_code = fields.Char(string='Article Code', compute='_get_article_code', store=False)
     paragraph_code = fields.Char(string='Paragraph Code', compute='_get_paragraph_code', store=False)
-
-    _sql_constraints = [
-        ('unique_my_field', 'unique(code)', 'My Field must be unique!')
-    ]
+    full_code = fields.Char(string="Ligne", compute="_get_full_code")
 
     @api.depends('paragraph_id.article_id.code')
     def _get_article_code(self):
@@ -29,3 +30,8 @@ class Ligne(models.Model):
     def _get_paragraph_code(self):
         for ligne in self:
             ligne.paragraph_code = ligne.paragraph_id.code if ligne.paragraph_id else ''
+
+    @api.depends('paragraph_id')
+    def _get_full_code(self):
+        for l in self:
+            l.full_code = f"{l.paragraph_id.article_id.code}/{l.paragraph_id.code}/{l.code}"

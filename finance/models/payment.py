@@ -10,7 +10,7 @@ class Payment(models.AbstractModel):
     id = fields.Id(string="ID")
     # ----------------------------------------------Relations-----------------------------------------
     compte_id = fields.Many2one('finance.compte', string='Compte')
-    engagement_id = fields.Many2one('finance.engagement', string='Engagement')
+    # engagement_id = fields.Many2one('finance.engagement', string='Engagement')
     # order_payment_ids = fields.One2many('finance.ordre_payment', 'payment_id')
     # ------------------------------------------------------------------------------------------------
     code = fields.Integer()
@@ -58,32 +58,32 @@ class Payment(models.AbstractModel):
         for pay in self:
             pay.montant = pay.engagement_id.montant
 
-    @api.depends('engagement_id.ligne_id')
+    @api.depends('engagement_id.detail_morasse_id.ligne_id')
     def _get_art_para_ligne(self):
         for eng in self:
-            line = eng.engagement_id.ligne_id
+            line = eng.engagement_id.detail_morasse_id.ligne_id
             full_code = f"{line.article_code}/{line.paragraph_code}/{line.code}"
             eng.full_ligne_code = full_code
 
-    @api.depends('engagement_id.ligne_id')
+    @api.depends('engagement_id.detail_morasse_id.ligne_id')
     def _get_ligne(self):
         for eng in self:
-            eng.ligne = eng.engagement_id.ligne_id.code
+            eng.ligne = eng.engagement_id.detail_morasse_id.ligne_id.code
 
-    @api.depends('engagement_id.ligne_id')
+    @api.depends('engagement_id.detail_morasse_id.ligne_id')
     def _get_ligne_rubrique(self):
         for eng in self:
-            eng.ligne_label = eng.engagement_id.ligne_id.label
+            eng.ligne_label = eng.engagement_id.detail_morasse_id.ligne_id.label
 
-    @api.depends('engagement_id.ligne_id')
+    @api.depends('engagement_id.detail_morasse_id.ligne_id')
     def _get_paragraphe(self):
         for eng in self:
-            eng.paragraphe = eng.engagement_id.ligne_id.paragraph_code
+            eng.paragraphe = eng.engagement_id.detail_morasse_id.ligne_id.paragraph_code
 
-    @api.depends('engagement_id.ligne_id')
+    @api.depends('engagement_id.detail_morasse_id.ligne_id')
     def _get_article(self):
         for eng in self:
-            eng.article = eng.engagement_id.ligne_id.article_code
+            eng.article = eng.engagement_id.detail_morasse_id.ligne_id.article_code
 
     @api.depends('montant')
     def _get_tva(self):

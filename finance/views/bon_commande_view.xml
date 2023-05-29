@@ -2,29 +2,29 @@
 <odoo>
     <data>
 
-        <record id="view_bon_commande_form" model="ir.ui.view">
-            <field name="name">finance_bon_commande_form</field>
-            <field name="model">finance.bon.commande</field>
-            <!--            <field name="inherit_id" ref="finance.view_engagement_form"/>-->
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                        <group>
-                            <group>
-                                <field name="code"/>
-                                <field name="compte_id"/>
-                                <field name="date"/>
-                            </group>
-                            <group>
-                                <field name="engagement_id"/>
-                                <field name="montant"/>
-                                <field name="description"/>
-                            </group>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
+<!--        <record id="view_bon_commande_form" model="ir.ui.view">-->
+<!--            <field name="name">finance_bon_commande_form</field>-->
+<!--            <field name="model">finance.bon.commande</field>-->
+<!--            &lt;!&ndash;            <field name="inherit_id" ref="finance.view_engagement_form"/>&ndash;&gt;-->
+<!--            <field name="arch" type="xml">-->
+<!--                <form>-->
+<!--                    <sheet>-->
+<!--                        <group>-->
+<!--                            <group>-->
+<!--                                <field name="code"/>-->
+<!--                                <field name="compte_id"/>-->
+<!--                                <field name="date"/>-->
+<!--                            </group>-->
+<!--                            <group>-->
+<!--                                <field name="engagement_id"/>-->
+<!--                                <field name="montant"/>-->
+<!--                                <field name="description"/>-->
+<!--                            </group>-->
+<!--                        </group>-->
+<!--                    </sheet>-->
+<!--                </form>-->
+<!--            </field>-->
+<!--        </record>-->
         <record model="ir.ui.view" id="view_bon_commande_tree">
             <field name="name">finance.bon.commande_tree</field>
             <field name="model">finance.bon.commande</field>
@@ -32,7 +32,7 @@
                 <tree string="Bon Commande">
                     <field name="code_year" string="Code BC"/>
                     <field name="full_ligne_code"/>
-                    <field name="engagement_id"/>
+<!--                    <field name="engagement_id"/>-->
                     <field name="montant" string="Total HT"/>
                     <field name="tva_montant" string="TVA %20"/>
                     <field name="total_ttc" string="Total TTC"/>

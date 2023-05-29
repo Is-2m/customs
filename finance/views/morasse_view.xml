@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="morasse_form_view" model="ir.ui.view">
+            <field name="name">finance.morasse.form</field>
+            <field name="model">finance.morasse</field>
+            <field name="arch" type="xml">
+                <form string="Morasse">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="year" widget="char"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Lignes">
+                                <field name="detail_ids">
+                                    <tree>
+                                        <field name="ligne_id"/>
+                                        <field name="montant"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="morasse_tree_view" model="ir.ui.view">
+            <field name="name">finance.morasse.tree</field>
+            <field name="model">finance.morasse</field>
+            <field name="arch" type="xml">
+                <tree string="Morasse">
+                    <field name="title"/>
+                </tree>
+            </field>
+        </record>
+
+<!--                <record id="morasse_search_view" model="ir.ui.view">-->
+        <!--                    <field name="name">finance.morasse.search</field>-->
+        <!--                    <field name="model">finance.morasse</field>-->
+        <!--                    <field name="arch" type="xml">-->
+        <!--                        <search string="Morasse">-->
+        <!--                            <group expand="1" string="Group By">-->
+        <!--                                <filter string="Example Field" name="" domain="[]"-->
+        <!--                                        context="{'group_by':'year'}"/>-->
+        <!--                            </group>-->
+        <!--                        </search>-->
+        <!--                    </field>-->
+        <!--                </record>-->
+
+        <record id="morasse_act_window" model="ir.actions.act_window">
+            <field name="name">Morasse</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.morasse</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Morasse.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>
