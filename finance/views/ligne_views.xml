@@ -26,6 +26,20 @@
             </form>
         </field>
     </record>
+        <record id="finance_ligne_search" model="ir.ui.view">
+            <field name="name">finance.ligne.search</field>
+            <field name="model">finance.ligne</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="label" string="Intitule"/>
+                    <field name="full_code" string="Ligne Code"/>
+                    <field name="display_name" string="Display name"/>
+<!--                    <field name="article_code" string="Article Code"/>-->
+
+<!--                    <field name="article_code"/>-->
+                </search>
+            </field>
+        </record>
 
 
 

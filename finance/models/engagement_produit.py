@@ -4,10 +4,15 @@ from odoo import fields, models, api
 class EngagementProduit(models.Model):
     _name = 'finance.engagement_produit'
     # _description = 'Description'
+    _sql_constraints = [
+        ('unique_BC_Prod', 'unique (bon_com_id,produit_id)',
+         'vous ne pouvez pas réutiliser le même produit dans le même engagement')
+    ]
 
     id = fields.Id('ID')
     # -------------------------------------Relations------------------------------------------------
-    engagement_id = fields.Many2one('finance.engagement', string='Engagement')
+    # engagement_id = fields.Many2one('finance.engagement', string='Engagement')
+    bon_com_id = fields.Many2one('finance.bon.commande', string='Engagement')
     produit_id = fields.Many2one('finance.produit', string='Product')
     # ----------------------------------------------------------------------------------------------
 
@@ -19,6 +24,8 @@ class EngagementProduit(models.Model):
     product_fournisseur = fields.Char(compute="_get_prod_fourni", store=False)
     product_designation = fields.Char(compute="_get_product_name", store=False)
     product_code = fields.Integer(compute="_get_product_code", store=False)
+    freeze_qte = fields.Boolean(compute='_freeze_qte')
+    type = fields.Char(string="Type", compute="_get_type")
 
     # ---------------------------------------------------------------------------------------------
 
@@ -26,6 +33,11 @@ class EngagementProduit(models.Model):
     def _get_product_price(self):
         for o in self:
             o.product_uni_price = o.produit_id.prix if o.produit_id else 0.0
+
+    @api.depends('produit_id.type')
+    def _get_type(self):
+        for o in self:
+            o.type = o.produit_id.type if o.produit_id else ''
 
     @api.depends('produit_id.fournisseur_id.name')
     def _get_prod_fourni(self):
@@ -47,7 +59,17 @@ class EngagementProduit(models.Model):
         for o in self:
             o.produit_id = o.produit_id.id
 
+    @api.depends('produit_id.type')
+    def _freeze_qte(self):
+        for obj in self:
+            if obj.produit_id.type == 'produit':
+                obj.freeze_qte = False
+            else:
+                obj.quantity = 1
+                obj.freeze_qte = True
+
 # @api.depends('paragraph_id.article_id.code')
 # def _get_article_code(self):
 #     for ligne in self:
-#         ligne.article_code = ligne.paragraph_id.article_id.code if ligne.paragraph_id and ligne.paragraph_id.article_id else ''
+#         ligne.article_code = ligne.paragraph_id.article_id.code if
+#           ligne.paragraph_id and ligne.paragraph_id.article_id else ''

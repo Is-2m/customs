@@ -28,7 +28,6 @@
         'views/fournisseur_view.xml',
         'views/engagement_produit_view.xml',
         'views/produit_view.xml',
-        'views/service_view.xml',
         # 'views/payement_view.xml',
         'views/ordre_payment_view.xml',
         'views/detail_morasse_view.xml',

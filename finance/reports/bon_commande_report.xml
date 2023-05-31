@@ -67,7 +67,7 @@
                                     <th class="border-all" style="width: 20%">PU HT</th>
                                     <th class="border-all" style="width: 20%">TOTALE HT</th>
                                 </tr>
-                                <t t-foreach="doc.engagement_id.engagement_produit_ids" t-as="p">
+                                <t t-foreach="doc.engagement_produit_ids" t-as="p">
                                     <tr>
                                         <td class="border-all text-center"><span t-field="p.produit_id.id"/></td>
                                         <td class="border-all">

@@ -12,13 +12,11 @@
                             <group>
                                 <field name="name" string="Designation"/>
                                 <field name="description" string="Description"/>
-                                <!--                            <field name="create_date" />-->
+                                <field name="type"/>
                             </group>
                             <group>
                                 <field name="prix" string="Prix"/>
-
                                 <field name="fournisseur_id" string="Fournisseur"/>
-                                <!--                            <field name="example_field"/>-->
                             </group>
                         </group>
                     </sheet>
@@ -62,7 +60,6 @@
                 </p>
             </field>
         </record>
-
 
 
     </data>

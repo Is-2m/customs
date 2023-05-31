@@ -24,7 +24,7 @@ class OrderPayment(models.Model):
     article = fields.Integer(string='Article', compute='_get_article', readonly=True)
     num_compte = fields.Char(string="Numéro Compte", compute="_get_num_compte")
     bank_name = fields.Char(string="Numéro Compte", compute="_get_bank_name")
-    fournisseur = fields.Char(string="Fournisseur", compute='_get_fournisseur_produit')
+    fournisseur = fields.Char(string="Fournisseur", compute='_get_fournisseur')
     fournisseur_adresse = fields.Char(string="Fournisseur", compute='_get_adresse_fournisseur_produit')
     full_ligne_code = fields.Char(string="Ligne", compute='_get_art_para_ligne')
 
@@ -124,7 +124,7 @@ class OrderPayment(models.Model):
         for op in self:
             order = op.bon_com_id
             op_total = sum(order.order_payment_ids.mapped('montant'))
-            resting_total = order.montant - op_total
+            resting_total = order.total_ttc - op_total
             if resting_total == 0:
                 op.montant = 0
             elif op.montant > resting_total:

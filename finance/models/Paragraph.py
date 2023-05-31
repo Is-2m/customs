@@ -12,7 +12,7 @@ class Paragraph(models.Model):
 
     article_id = fields.Many2one('finance.article', string='Article', ondelete='cascade')
     ligne_ids = fields.One2many('finance.ligne', 'paragraph_id', string='Lignes')
-    full_code = fields.Char(string="Paragraphe", compute="_get_full_paragraphe")
+    full_code = fields.Char(string="Paragraphe", compute="_get_full_code")
 
     # _sql_constraints = [
     #     ('unique_my_field', 'unique(code)', 'My Field must be unique!')

@@ -48,7 +48,7 @@
                                         <div t-field="doc.fournisseur_adresse"/>
                                     </td>
                                     <td class="border-all">
-                                        <t t-foreach="doc.bon_com_id.engagement_id.engagement_produit_ids" t-as="p">
+                                        <t t-foreach="doc.bon_com_id.engagement_produit_ids" t-as="p">
                                             <span t-esc="p.product_designation"/><br/>
                                         </t><br/>
                                         Facture n°: <span t-esc="doc.facture"/>

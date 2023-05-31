@@ -34,8 +34,8 @@
     <menuitem name="Produits" id="produit_menu_action" parent="finance.gestion_prod_serv_menu"
               action="produit_act_window"
               sequence="0"/>
-    <menuitem name="Services" id="service_menu_action" parent="finance.gestion_prod_serv_menu"
-              action="service_act_window" sequence="1"/>
+<!--    <menuitem name="Services" id="service_menu_action" parent="finance.gestion_prod_serv_menu"-->
+<!--              action="service_act_window" sequence="1"/>-->
     <menuitem id="fournisseur_menu_action" name="Fournisseurs" parent="gestion_prod_serv_menu"
               action="finance.fournisseur_act_window" sequence="2"/>
     <menuitem name="Morasse Détaillée" id="morasse_detaillee_menu_action" parent="finance.gestion_morasse"

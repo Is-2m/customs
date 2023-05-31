@@ -23,7 +23,7 @@
                     <notebook>
                         <page string="Bon Commande">
                             <group>
-                                <field name="type" select="0"/>
+<!--                                <field name="type" select="0"/>-->
                                 <field name="code"/>
                                 <field name="montant"/>
                             </group>
@@ -33,7 +33,7 @@
                             <!--                            <field name="type" select="1"/>-->
                             <group>
                                 <group>
-                                    <field name="type" eval="1"/>
+<!--                                    <field name="type" eval="1"/>-->
                                     <field name="code"/>
                                 </group>
                                 <group>

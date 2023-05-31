@@ -4,7 +4,7 @@ from odoo import models, fields, api
 class Ligne(models.Model):
     _name = 'finance.ligne'
     _description = 'Ligne Description'
-    _rec_name = 'label'
+    _rec_name = 'display_name'
     # _sql_constraints = [
     #     ('unique_my_field', 'unique(code)', 'My Field must be unique!')
     # ]
@@ -19,7 +19,8 @@ class Ligne(models.Model):
     # -------------------------------- Compute ------------------------------
     article_code = fields.Char(string='Article Code', compute='_get_article_code', store=False)
     paragraph_code = fields.Char(string='Paragraph Code', compute='_get_paragraph_code', store=False)
-    full_code = fields.Char(string="Ligne", compute="_get_full_code")
+    full_code = fields.Char(string="Ligne", compute="_get_full_code", store=True)
+    display_name = fields.Char("Ligne", compute="_get_full_code_label", store=True)
 
     @api.depends('paragraph_id.article_id.code')
     def _get_article_code(self):
@@ -35,3 +36,8 @@ class Ligne(models.Model):
     def _get_full_code(self):
         for l in self:
             l.full_code = f"{l.paragraph_id.article_id.code}/{l.paragraph_id.code}/{l.code}"
+
+    @api.depends('paragraph_id')
+    def _get_full_code_label(self):
+        for l in self:
+            l.display_name = f"{l.paragraph_id.article_id.code}/{l.paragraph_id.code}/{l.code} {l.label}"
