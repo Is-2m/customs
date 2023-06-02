@@ -6,11 +6,6 @@
         <field name="arch" type="xml">
             <form>
                 <sheet>
-<!--                    <header>-->
-<!--                        <button type="object" name="create_paragraph" string="Create Paragraph"-->
-<!--                                    context="{'codei': code, 'labeli': label}"/>-->
-
-<!--                    </header>-->
                     <group>
                         <field name="code" default_focus="1"/>
                         <field name="label"/>

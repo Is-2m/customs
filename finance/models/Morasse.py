@@ -3,7 +3,6 @@ from odoo import fields, models, api
 
 class Morasse(models.Model):
     _name = 'finance.morasse'
-    # _description = 'Description'
     _rec_name = 'title'
     _sql_constraints = [
         ('unique_morasse_year', 'unique(year)', 'L\'année de morasse doit être unique!')

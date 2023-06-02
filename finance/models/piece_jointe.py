@@ -13,4 +13,3 @@ class PieceJoint(models.Model):
     order_payment_ids = fields.Many2many('finance.ordre_payment', string='Ordres Paiements')
     # -------------------------------------------------------------------------------------------
 
-    # Any other fields for Ordonnateur table

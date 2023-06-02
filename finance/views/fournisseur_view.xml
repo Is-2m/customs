@@ -56,19 +56,6 @@
             </field>
         </record>
 
-<!--        <record id="ModelName_search_view" model="ir.ui.view">-->
-<!--            <field name="name">ProjectName.ModelName.search</field>-->
-<!--            <field name="model">ProjectName.ModelName</field>-->
-<!--            <field name="arch" type="xml">-->
-<!--                <search string="ModelTitle">-->
-<!--                    <group expand="1" string="Group By">-->
-<!--                        <filter string="Example Field" name="example_field" domain="[]"-->
-<!--                                context="{'group_by':'example_field'}"/>-->
-<!--                    </group>-->
-<!--                </search>-->
-<!--            </field>-->
-<!--        </record>-->
-
         <record id="fournisseur_act_window" model="ir.actions.act_window">
             <field name="name">Fournisseur</field>
             <field name="type">ir.actions.act_window</field>

@@ -52,11 +52,8 @@ class OrdreRecette(models.Model):
             if montant_chiffre == 0:
                 rec.montant_lettre = "zéro DH".upper()
             else:
-                # Convert the float to an integer to get rid of the decimal point
                 integer_part = int(montant_chiffre)
-                # Convert the integer part to words
                 words = num2words(integer_part, lang='fr')
-                # Add the word for the currency (euros) and the decimal part, if there is one
                 decimal_part = int(round((montant_chiffre - integer_part) * 100))
                 if decimal_part == 0:
                     rec.montant_lettre = f"{words} DH".upper()

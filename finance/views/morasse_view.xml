@@ -39,19 +39,6 @@
             </field>
         </record>
 
-<!--                <record id="morasse_search_view" model="ir.ui.view">-->
-        <!--                    <field name="name">finance.morasse.search</field>-->
-        <!--                    <field name="model">finance.morasse</field>-->
-        <!--                    <field name="arch" type="xml">-->
-        <!--                        <search string="Morasse">-->
-        <!--                            <group expand="1" string="Group By">-->
-        <!--                                <filter string="Example Field" name="" domain="[]"-->
-        <!--                                        context="{'group_by':'year'}"/>-->
-        <!--                            </group>-->
-        <!--                        </search>-->
-        <!--                    </field>-->
-        <!--                </record>-->
-
         <record id="morasse_act_window" model="ir.actions.act_window">
             <field name="name">Morasse</field>
             <field name="type">ir.actions.act_window</field>

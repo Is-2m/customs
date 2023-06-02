@@ -6,9 +6,6 @@ class BonCommande(models.Model):
     _name = 'finance.bon.commande'
     _description = 'Description'
     _inherit = "finance.engagement"
-    # _sql_constraints = [
-    #     ("finance.bon_com_PKey", "primary key(engagement_id)", '')
-    # ]
 
     # ------------------------------------- Relations -------------------------------------------
 

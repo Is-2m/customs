@@ -34,9 +34,6 @@
                     <field name="label" string="Intitule"/>
                     <field name="full_code" string="Ligne Code"/>
                     <field name="display_name" string="Display name"/>
-<!--                    <field name="article_code" string="Article Code"/>-->
-
-<!--                    <field name="article_code"/>-->
                 </search>
             </field>
         </record>

@@ -11,7 +11,6 @@ class EngagementProduit(models.Model):
 
     id = fields.Id('ID')
     # -------------------------------------Relations------------------------------------------------
-    # engagement_id = fields.Many2one('finance.engagement', string='Engagement')
     bon_com_id = fields.Many2one('finance.bon.commande', string='Engagement')
     produit_id = fields.Many2one('finance.produit', string='Product')
     # ----------------------------------------------------------------------------------------------
@@ -67,9 +66,3 @@ class EngagementProduit(models.Model):
             else:
                 obj.quantity = 1
                 obj.freeze_qte = True
-
-# @api.depends('paragraph_id.article_id.code')
-# def _get_article_code(self):
-#     for ligne in self:
-#         ligne.article_code = ligne.paragraph_id.article_id.code if
-#           ligne.paragraph_id and ligne.paragraph_id.article_id else ''

@@ -37,18 +37,6 @@
             </field>
         </record>
 
-        <!--        <record id="produit_search_view" model="ir.ui.view">-->
-        <!--            <field name="name">finance.produit.search</field>-->
-        <!--            <field name="model">finance.produit</field>-->
-        <!--            <field name="arch" type="xml">-->
-        <!--                <search string="Produit">-->
-        <!--                    <group expand="1" string="Group By">-->
-        <!--                        <filter string="Example Field" name="example_field" domain="[]" context="{'group_by':'example_field'}"/>-->
-        <!--                    </group>-->
-        <!--               </search>-->
-        <!--            </field>-->
-        <!--        </record>-->
-
         <record id="produit_act_window" model="ir.actions.act_window">
             <field name="name">Produit</field>
             <field name="type">ir.actions.act_window</field>

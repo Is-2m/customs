@@ -23,9 +23,6 @@
             <field name="model">finance.paragraph</field>
             <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <button name="create_ligne" string="Create Ligne"/>
-                    </header>
                     <sheet>
                         <group>
                             <field name="code" default_focus="1"/>

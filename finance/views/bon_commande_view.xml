@@ -5,7 +5,6 @@
         <record id="view_bon_commande_form" model="ir.ui.view">
             <field name="name">finance_bon_commande_form</field>
             <field name="model">finance.bon.commande</field>
-            <!--            <field name="inherit_id" ref="finance.view_engagement_form"/>-->
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -68,7 +67,6 @@
 
                     <group>
                         <filter string="Date" name="date" context="{'group_by':'date'}"/>
-<!--                        <filter string="Fournisseur" name="fournisseur" context="{'group_by':'fournisseur'}"/>-->
                     </group>
 
                 </search>

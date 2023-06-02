@@ -13,7 +13,6 @@ class OrderPayment(models.Model):
     date = fields.Date(string="Date", default=lambda self: (fields.Date.today()))
     # -------------------------------- Relations ----------------------------------------------
     piece_jointe_ids = fields.Many2many('finance.piece_jointe', string="Pieces Jointes")
-    # payment_id = fields.Many2one("finance.payment")
     bon_com_id = fields.Many2one("finance.bon.commande")
     # --------------------------------- Computed ----------------------------------------------
     montant_letter = fields.Char(string="Montant Letter", compute='_get_montant_lettre')

@@ -14,5 +14,5 @@ class Produit(models.Model):
     type = fields.Selection(string="Type", selection=[
         ('produit', 'Produit'),
         ('service', 'Service'),
-        ('labor', 'Labor')
+        ('travaux', 'Travaux')
     ])

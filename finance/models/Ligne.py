@@ -5,9 +5,7 @@ class Ligne(models.Model):
     _name = 'finance.ligne'
     _description = 'Ligne Description'
     _rec_name = 'display_name'
-    # _sql_constraints = [
-    #     ('unique_my_field', 'unique(code)', 'My Field must be unique!')
-    # ]
+
 
     id = fields.Integer(primary_key=True)
     code = fields.Char(required=True, index=True)

@@ -53,19 +53,6 @@
             </field>
         </record>
 
-        <!--        <record id="ordre_payment_search_view" model="ir.ui.view">-->
-        <!--            <field name="name">finance.ordre_payment.search</field>-->
-        <!--            <field name="model">finance.ordre_payment</field>-->
-        <!--            <field name="arch" type="xml">-->
-        <!--                <search string="Ordre Paiement">-->
-        <!--                    <group expand="1" string="Group By">-->
-        <!--                        <filter string="Example Field" name="example_field" domain="[]"-->
-        <!--                                context="{'group_by':'example_field'}"/>-->
-        <!--                    </group>-->
-        <!--                </search>-->
-        <!--            </field>-->
-        <!--        </record>-->
-
         <record id="ordre_payment_act_window" model="ir.actions.act_window">
             <field name="name">Ordre Paiement</field>
             <field name="type">ir.actions.act_window</field>
