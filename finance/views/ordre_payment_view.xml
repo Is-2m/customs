@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ordre_payment_form_view" model="ir.ui.view">
+            <field name="name">finance.ordre_payment.form</field>
+            <field name="model">finance.ordre_payment</field>
+            <field name="arch" type="xml">
+                <form string="Ordre Paiement">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="date"/>
+                                <field name="facture"/>
+                            </group>
+                            <group>
+                                <field name="bon_com_id"/>
+                                <field name="montant"/>
+                            </group>
+                            <notebook>
+                                <page string="Pieces Jointes">
+                                    <field name="piece_jointe_ids" mode="tree">
+                                        <tree string="Pieces Jointes">
+                                            <field name="name" string="Intitule de Piece"/>
+                                            <field name="file_name" string="Nom de Ficher"/>
+                                            <field name="file_data" string="Ficher"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ordre_payment_tree_view" model="ir.ui.view">
+            <field name="name">finance.ordre_payment.tree</field>
+            <field name="model">finance.ordre_payment</field>
+            <field name="arch" type="xml">
+                <tree string="Ordre Paiement">
+                    <field name="code_year" string="Code"/>
+                    <field name="bon_com_id" string="Paiement Code"/>
+                    <field name="full_ligne_code"/>
+                    <field name="date"/>
+                    <field name="montant"/>
+                    <field name="montant_letter"/>
+                    <field name="fournisseur"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="ordre_payment_act_window" model="ir.actions.act_window">
+            <field name="name">Ordre Paiement</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.ordre_payment</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new Ordre Paiement.
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

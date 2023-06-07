@@ -1,0 +1,48 @@
+<odoo>
+
+    <record id="view_ligne_tree" model="ir.ui.view">
+        <field name="name">ligne.tree</field>
+        <field name="model">finance.ligne</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_code" width="1" string="Ligne Code"/>
+                <field name="label" width="2" string="Label"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="ligne_form_view" model="ir.ui.view">
+        <field name="name">ligne.form</field>
+        <field name="model">finance.ligne</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="code" default_focus="1"/>
+                        <field name="label"/>
+                        <field name="paragraph_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        <record id="finance_ligne_search" model="ir.ui.view">
+            <field name="name">finance.ligne.search</field>
+            <field name="model">finance.ligne</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="label" string="Intitule"/>
+                    <field name="full_code" string="Ligne Code"/>
+                    <field name="display_name" string="Display name"/>
+                </search>
+            </field>
+        </record>
+
+
+
+    <record id="ligne_action" model="ir.actions.act_window">
+        <field name="name">Ligne</field>
+        <field name="res_model">finance.ligne</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

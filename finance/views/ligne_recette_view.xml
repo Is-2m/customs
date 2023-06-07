@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="nature_recette_tree_view" model="ir.ui.view">
+            <field name="name">finance_ligne_recette_tree</field>
+            <field name="model">finance.ligne.recette</field>
+            <field name="arch" type="xml">
+
+                <tree string="Les ordres de recette" class="costum-class">
+                    <field name="code"/>
+                    <field name="label"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record id="nature_recette_form_view" model="ir.ui.view">
+            <field name="name">finance_ligne_recette_form</field>
+            <field name="model">finance.ligne.recette</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="label"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="nature_recette_model_action" model="ir.actions.act_window">
+            <field name="name">Gestion Nature Des Recettes</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.ligne.recette</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Creér une nouvelle ligne de recette !
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

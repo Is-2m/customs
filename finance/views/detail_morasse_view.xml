@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+
+        <record id="detail_morasse_form_view" model="ir.ui.view">
+            <field name="name">finance_detail_morasse_form</field>
+            <field name="model">finance.detail_morasse</field>
+            <field name="arch" type="xml">
+
+                <form string="Detail Morasse">
+                    <header class="">
+                        <div class="">
+                            <h2>La recette de cette annee: <field name="total_recette"/></h2>
+                            <h2>Le montant restant: <field name="rest_recette"/></h2>
+                        </div>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="morasse_id"/>
+                                <field name="ligne_id"/>
+                            </group>
+                            <group>
+                                <field name="montant"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="detail_morasse_tree_view" model="ir.ui.view">
+            <field name="name">finance_detail_morasse_tree</field>
+            <field name="model">finance.detail_morasse</field>
+            <field name="arch" type="xml">
+                <tree string="Morasse">
+                    <field name="morasse_id"/>
+                    <field name="full_line_code_label"/>
+                    <field name="montant"/>
+                    <field name="rap"/>
+                </tree>
+            </field>
+        </record>
+        <record id="finance_detail_morasse_search" model="ir.ui.view">
+            <field name="name">finance.detail_morasse.search</field>
+            <field name="model">finance.detail_morasse</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="morasse_title" string="Morasse"/>
+
+                    <group>
+                        <filter string="Annee" name="year" context="{'group_by':'morasse_id'}"/>
+                    </group>
+
+                </search>
+
+            </field>
+        </record>
+
+        <record id="morasse_detaillee_act_window" model="ir.actions.act_window">
+            <field name="name">Morasse</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.detail_morasse</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_morasse_title': context_today().year}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    There is no examples click here to add new ModelTitle.
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

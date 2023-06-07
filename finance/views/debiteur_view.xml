@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_debiteurs_form">
+            <field name="name">finance_debiteur_form</field>
+            <field name="model">finance.debiteur</field>
+            <field name="arch" type="xml">
+                <form string="Debiteurs">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="address"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="view_debiteurs_tree">
+            <field name="name">finance_debiteur_tree</field>
+            <field name="model">finance.debiteur</field>
+            <field name="arch" type="xml">
+                <tree string="Debiteurs">
+                    <field name="name"/>
+                    <field name="address"/>
+                </tree>
+            </field>
+        </record>
+        <record id="debiteur_model_action" model="ir.actions.act_window">
+            <field name="name">Gestion Debiteur</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">finance.debiteur</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Creér une nouvelle ligne de recette !
+                </p>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

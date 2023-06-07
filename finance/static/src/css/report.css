@@ -1,0 +1,177 @@
+span {
+    font-weight: bold;
+    font-style: italic;
+}
+h2{
+    font-family: "Droid Serif", "DejaVu Serif", "STIX", serif;
+}
+.hidden-border-left {
+    border-left-style: hidden !important;
+}
+
+.hidden-border-top {
+    border-top-style: hidden !important;
+}
+
+.hidden-border-right {
+    border-right-style: hidden !important;
+}
+
+.hidden-border-bottom {
+    border-bottom-style: hidden !important;
+}
+
+.hidden-border-vertical {
+    border-bottom-style: hidden !important;
+    border-top-style: hidden !important;
+}
+
+.hidden-border-horizontal {
+    border-left-style: hidden !important;
+    border-right-style: hidden !important;
+}
+.all-td-hidden tr td{
+    border-style: hidden !important;
+    /*background-color: red;*/
+}
+td{
+    padding:5px ;
+}
+.border-all{
+    border-top: 2px black solid !important;
+    border-bottom: 2px black solid !important;
+    border-left: 2px black solid !important;
+    border-right: 2px black solid !important;
+}
+
+/*table{*/
+/*    border-style: hidden !important;*/
+/*}*/
+/*table {*/
+/*    !*border:1px rgba(255,255,255,1) !important;*!*/
+
+/*}*/
+
+/*#okValidation {*/
+/*    height: 1.35rem;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    margin-bottom: 1px;*/
+/*}*/
+
+/*.rectangleValidation {*/
+/*    border: 2px black solid;*/
+/*    width: 25%;*/
+/*    border-bottom: none;*/
+/*    margin-left: 45%;*/
+/*    height: 100%;*/
+/*}*/
+
+/*.font-italic {*/
+/*    font-style: italic;*/
+/*}*/
+
+/*.yearFile {*/
+/*    margin-left: auto;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*#tableHeader1 {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 31% 60%;*/
+/*    place-content: center;*/
+/*    height: fit-content;*/
+/*}*/
+
+/*.borders {*/
+/*    border: 2px black solid;*/
+/*}*/
+
+/*.serviceOrdo {*/
+/*    font-size: min(13px, 2vw);*/
+/*    border-left: none;*/
+/*    text-align: center;*/
+/*    padding-block: 0.5vh;*/
+/*}*/
+
+/*.raisonSoc {*/
+/*    font-size: 1rem;*/
+/*    border-left: none;*/
+/*    text-align: center;*/
+/*    padding-block: 0.5vh;*/
+/*}*/
+
+/*.letterA {*/
+/*    border-block: none;*/
+/*    text-align: center;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.ensaf {*/
+/*    font-size: 13px;*/
+/*    font-weight: bold;*/
+/*    border-right: 2px black solid;*/
+/*    text-align: center;*/
+/*    padding: 2px;*/
+/*}*/
+
+/*#debiteurInput {*/
+/*    border-right: 2px black solid;*/
+/*    text-align: center;*/
+/*    padding-bottom: 1px;*/
+/*}*/
+
+/*#orInfos {*/
+/*    background-color: red;*/
+/*    display: grid;*/
+/*    grid-template-columns: 40% 1fr 1fr;*/
+/*    place-content: center;*/
+/*    border: 2px black solid;*/
+/*}*/
+
+/*.orInfos_padd {*/
+
+/*    padding: 0.25rem;*/
+/*}*/
+
+/*#explSec {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 70%;*/
+/*}*/
+
+/*#explLabel {*/
+/*    font-weight: bold;*/
+/*    padding-bottom: 1rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.borderBottom {*/
+/*    border-bottom: 2px black solid;*/
+/*}*/
+
+/*.montantCon {*/
+/*    display: grid;*/
+/*    grid-template-columns: 30% 50% 1fr;*/
+/*}*/
+
+/*.monRec {*/
+/*    border-right: 2px black solid;*/
+/*    padding: 0.5rem;*/
+/*}*/
+
+/*.monDhs {*/
+/*    padding: 0.5rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.monLettre {*/
+/*    font-weight: bold;*/
+/*    border-right: 2px black solid;*/
+/*    padding: 0.5rem;*/
+/*}*/
+
+/*.monChiffre {*/
+/*    text-align: center;*/
+/*    font-weight: bold;*/
+/*    padding: 0.5rem;*/
+/*}*/

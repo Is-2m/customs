@@ -1,0 +1,122 @@
+<odoo>
+    <data>
+        <template id="custom_layout_no_footer">
+            <div class="header">
+                <xpath expr="." position="inside">
+                    <link href="/finance/static/src/css/bon_com_report.css" rel="stylesheet"/>
+                </xpath>
+                <div class="text-center" style="border-bottom: 3px solid black;">
+                    <img src="/finance/static/report/header.png" alt="image is not loading ..."
+                         height="153" width="1300"
+                    />
+                </div>
+            </div>
+            <div class="article o_report_layout_standard">
+                <t t-out="0"/>
+
+            </div>
+            <div class="footer o_standard_footer">
+            </div>
+        </template>
+
+        <template id="bon_com_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="finance.custom_layout_no_footer">
+                        <div class="page">
+                            <table style="float: right; margin: 0;">
+                                <tr class="border-all">
+                                    <td class="border-all">Article</td>
+                                    <td class="border-all"><span t-field="doc.article"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Paragraph</td>
+                                    <td class="border-all"><span t-field="doc.paragraphe"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Ligne</td>
+                                    <td class="border-all"><span t-field="doc.ligne"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">Rubrique</td>
+                                    <td class="border-all">
+                                        <span t-field="doc.ligne_label"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <center style="padding-top: 20px; clear: both">
+                                <h3 style="font-weight: bold; margin: 8px">Bon Commande</h3>
+                                <p style="margin: 8px">Numero: <span t-field="doc.code_year"/></p>
+                                <p style="margin: 8px">Date: <span t-field="doc.date"/></p>
+                            </center>
+                            <table style="margin-top: 20px" class="hide-all-borders" width="100%">
+                                <tr>
+                                    <td class="hide-all-borders">Fournisseur</td>
+                                    <td class="hide-all-borders">: <span t-field="doc.fournisseur"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="hide-all-borders">Adresse</td>
+                                    <td class="hide-all-borders">: <span t-field="doc.fournisseur_adresse"/></td>
+                                </tr>
+                            </table>
+                            <table width="100%">
+                                <tr>
+                                    <th class="border-all text-center" style="width: 10%">ART.N°</th>
+                                    <th class="border-all" style="width: 40%">Designation</th>
+                                    <th class="border-all text-center" style="width: 10%">QTE</th>
+                                    <th class="border-all" style="width: 20%">PU HT</th>
+                                    <th class="border-all" style="width: 20%">TOTALE HT</th>
+                                </tr>
+                                <t t-foreach="doc.engagement_produit_ids" t-as="p">
+                                    <tr>
+                                        <td class="border-all text-center"><span t-field="p.produit_id.id"/></td>
+                                        <td class="border-all">
+                                            <span t-field="p.product_designation"/>
+                                        </td>
+                                        <td class="border-all text-center"><span t-field="p.quantity"/></td>
+                                        <td class="border-all text-right"><span t-field="p.product_uni_price"/></td>
+                                        <td class="border-all text-right"><span t-field="p.product_total_price"/></td>
+                                    </tr>
+                                </t>
+                                <tr>
+                                    <td class="border-all" rowspan="3" colspan="3">
+                                        Destination et utilisation : <span t-field="doc.description"/>
+                                    </td>
+                                    <td class="border-all">TOTAL HT</td>
+                                    <td class="border-all text-right"><span t-field="doc.montant"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">TVA 20%:</td>
+                                    <td class="border-all text-right"><span t-field="doc.tva_montant"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">TOTAL TTC</td>
+                                    <td class="border-all text-right"><span t-field="doc.total_ttc"/></td>
+                                </tr>
+                            </table>
+                            <table width="100%" class="hide-all-borders">
+                                <tr>
+                                    <td style="width: 50%" class="hide-all-borders">
+                                        Arrêté le présent Bon de Command à la somme de:
+                                    </td>
+                                    <td style="width: 50%" class="hide-all-borders">
+                                        <b>AVIS IMPORTANT:</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hide-all-borders"><span t-field="doc.total_ttc_letter"/></td>
+                                    <td class="hide-all-borders">
+                                        <i
+                                        >La facture doit être établie en
+                                            5 exemplaires, arrêtée en toutes lettres et signée. Rappeler le n° du
+                                            présent B.C sur la facture. </i>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

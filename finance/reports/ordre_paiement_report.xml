@@ -1,0 +1,186 @@
+<odoo>
+    <data>
+        <template id="or_pay_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="finance.custom_layout_no_footer">
+                        <div class="page">
+                            <table width="100%" style="margin-top:0 " class="hide-all-borders">
+                                <tr>
+                                    <td class="hide-all-borders">C/Cn°42172/TR Fes</td>
+                                    <td class="hide-all-borders text-right">EXERCICE: <span
+                                            t-esc="doc.get_last_two_dig()"/></td>
+                                </tr>
+                            </table>
+                            <center style="padding-top: 10px; clear: right">
+                                <h2><span>ORDRE DE PAIEMENT</span></h2>
+                            </center>
+                            <table width="20%" style="float: right">
+                                <tr>
+                                    <td class="border-all">
+                                        <div style="float: left">N°</div>
+                                        <span style="float: right; padding-right: 10px"><span t-field="doc.code"/>/<span
+                                                t-esc="doc.get_last_two_dig()"/></span>
+                                    </td>
+                                </tr>
+                            </table>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <table width="100%">
+                                <tr>
+                                    <th style="width: 30%" class="bg-light-gray border-all">
+                                        NOM ET QUALITE DU BENEFICIAIRE
+                                    </th>
+                                    <th style="width: 30%" class="bg-light-gray border-all">
+                                        OBJET DE LA DEPENSE
+                                    </th>
+                                    <th style="width: 20%" class="bg-light-gray border-all">MONTANT</th>
+                                    <th style="width: 20%" class="bg-light-gray border-all">
+                                        PIECES JOINTES
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="border-all">
+                                        <span t-field="doc.fournisseur"/>
+                                        <br/>
+                                        <div t-field="doc.fournisseur_adresse"/>
+                                    </td>
+                                    <td class="border-all">
+                                        <t t-foreach="doc.bon_com_id.engagement_produit_ids" t-as="p">
+                                            <span t-esc="p.product_designation"/><br/>
+                                        </t><br/>
+                                        Facture n°: <span t-esc="doc.facture"/>
+                                    </td>
+                                    <td class="border-all"><span t-esc="doc.montant"/></td>
+                                    <td class="border-all">
+                                        <t t-foreach="doc.piece_jointe_ids" t-as="p">
+                                            -<span t-field="p.name"/><br/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="hide-border-bottom hide-border-left"></td>
+                                    <td class="border-all">TOTAL</td>
+                                    <td class="border-all"><span t-esc="doc.montant"/></td>
+                                    <td class="hide-border-right hide-border-bottom"></td>
+                                </tr>
+                            </table>
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="4" class="bg-light-gray border-all text-center">
+                                        <b>IMPUTATION</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="bg-light-gray border-all text-center" style="width: 70">
+                                        Rubrique
+                                    </th>
+                                    <th class="bg-light-gray border-all text-center" style="width: 10%">
+                                        Art.
+                                    </th>
+                                    <th class="bg-light-gray border-all text-center" style="width: 10%">
+                                        §
+                                    </th>
+                                    <th class="bg-light-gray border-all text-center" style="width: 10%">
+                                        Lig.
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="border-all" style="padding: 30px; width: 70">
+                                        <span t-esc="doc.ligne_label"/>
+                                    </td>
+                                    <td class="border-all text-center" style="padding: 30px; width: 10%">
+                                        <span t-esc="doc.article"/>
+                                    </td>
+                                    <td class="border-all text-center" style="padding: 30px; width: 10%">
+                                        <span t-esc="doc.paragraphe"/>
+
+                                    </td>
+                                    <td class="border-all text-center" style="padding: 30px; width: 10%">
+                                        <span t-esc="doc.ligne"/>
+                                    </td>
+                                </tr>
+                            </table>
+                            <p style="margin: 4px">
+                                Arrêté le présent Ordre de Paiement à la somme de:
+                            </p>
+                            <p style="margin: 4px">
+                                <span t-esc="doc.montant_letter"/>
+                            </p>
+                            <table width="100%">
+                                <tr class="border-all">
+                                    <th style="width: 50%" colspan="2" class="bg-light-gray text-center">
+                                        MODE DE REGLEMENT
+                                    </th>
+                                    <th style="width: 50%" class="bg-light-gray text-center" colspan="2">
+                                        COMPTABILISATION
+                                    </th>
+                                </tr>
+                                <tr class="border-all">
+                                    <td class="hide-border-bottom">Virement du compte n°:</td>
+                                    <td class="hide-border-bottom hide-border-left">
+                                        <span>42172/TR Fes</span>
+                                    </td>
+                                    <th class="bg-light-gray border-all">Debit</th>
+                                    <th class="bg-light-gray border-all">Credit</th>
+                                </tr>
+                                <tr class="border-all">
+                                    <td class="hide-border-bottom">au compte n°:</td>
+                                    <td class="hide-border-bottom hide-border-left">
+                                        <span t-esc="doc.num_compte"/>
+                                    </td>
+                                    <td rowspan="4" class="border-all"></td>
+                                    <td rowspan="4" class="border-all"></td>
+                                </tr>
+                                <tr class="border-all">
+                                    <td class="hide-border-bottom">ouvert chez :</td>
+                                    <td class="hide-border-bottom hide-border-left"><span t-esc="doc.bank_name"/></td>
+                                </tr>
+                                <tr class="border-all">
+                                    <td class="hide-border-bottom">Ordre de Virment:</td>
+                                    <td class="hide-border-bottom hide-border-left"></td>
+                                </tr>
+                                <tr class="border-all">
+                                    <td>date de reglement :</td>
+                                    <td class="hide-border-left">Cheque n° :</td>
+                                </tr>
+                            </table>
+                            <table class="hide-all-borders" width="100%">
+                                <tr>
+                                    <td
+                                            style="font-size: 13px; font-weight: 600; vertical-align: top"
+                                            class="hide-all-borders"
+                                            width="50%"
+                                            rowspan="2"
+                                    >
+                                        Visa du Tresorier Payeur<br/>
+                                        Fes, le
+                                    </td>
+                                    <td
+                                            style="font-size: 13px; font-weight: 600"
+                                            class="hide-all-borders"
+                                            width="50%"
+                                    >
+                                        Le présent Ordre de Paiement, certifié exact, arrété en toutes lettres
+                                        est délivré par nous
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                            class="hide-all-borders"
+                                            style="font-size: 13px; font-weight: 600; padding: 30"
+                                    >
+                                        Le Sous-Ordonnateur <br/>
+                                        Emis a Fes, le
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>
