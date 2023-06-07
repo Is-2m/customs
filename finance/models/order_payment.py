@@ -6,6 +6,10 @@ class OrderPayment(models.Model):
     _name = 'finance.ordre_payment'
     _description = 'Description'
     _rec_name = 'code_year'
+    _sql_constraints = [
+        ('unique_op_code', 'unique(code)', 'Le code de ordre de paiement doit être unique!'),
+        ('check_montant', 'CHECK( montant>= 0)', 'Le montant ne peut pas être négatif.'),
+    ]
 
     facture = fields.Char(string="Facture N°")
     code = fields.Integer(string="Code")

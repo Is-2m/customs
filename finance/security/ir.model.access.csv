@@ -14,7 +14,6 @@ finance.access_morasse,access_morasse,finance.model_finance_morasse,base.group_u
 
 finance.access_finance_bon_commande,access_finance_bon_commande,finance.model_finance_bon_commande,base.group_user,1,1,1,1
 finance.access_finance_produit,access_finance_produit,finance.model_finance_produit,base.group_user,1,1,1,1
-finance.access_finance_payment,access_finance_payment,finance.model_finance_payment,base.group_user,1,1,1,1
 finance.access_finance_engagement_produit,access_finance_engagement_produit,finance.model_finance_engagement_produit,base.group_user,1,1,1,1
 finance.access_finance_fournisseur,access_finance_fournisseur,finance.model_finance_fournisseur,base.group_user,1,1,1,1
 finance.access_finance_ordre_payment,access_finance_ordre_payment,finance.model_finance_ordre_payment,base.group_user,1,1,1,1

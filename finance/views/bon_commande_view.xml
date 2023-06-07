@@ -16,8 +16,8 @@
                             </group>
                             <group>
                                 <field name="detail_morasse_id"/>
-                                <field name="montant"/>
                                 <field name="description"/>
+                                <field name="montant" string="Total HT"/>
                             </group>
                         </group>
                         <notebook>
@@ -26,9 +26,9 @@
                                     <tree>
                                         <field name="produit_id"/>
                                         <field name="type"/>
-                                        <field name="product_uni_price"/>
-                                        <field name="quantity"/>
-                                        <field name="product_fournisseur"/>
+                                        <field name="product_uni_price" string="PU"/>
+                                        <field name="quantity" string="QTE"/>
+                                        <field name="product_fournisseur" string="Fournisseur"/>
                                     </tree>
                                 </field>
                             </page>

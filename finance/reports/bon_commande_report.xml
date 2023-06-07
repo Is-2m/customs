@@ -78,7 +78,6 @@
                                         <td class="border-all text-right"><span t-field="p.product_total_price"/></td>
                                     </tr>
                                 </t>
-
                                 <tr>
                                     <td class="border-all" rowspan="3" colspan="3">
                                         Destination et utilisation : <span t-field="doc.description"/>

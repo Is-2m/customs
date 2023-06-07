@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
     <menuitem id="gestion_fn_menu" name="Finance" sequence="0">
-        <menuitem id="options_menu" name="Recette" sequence="0"/>
+        <!-- l'élément de menu racine qui apparaît entre les applications activées dans odoo -->
+        <menuitem id="recette_menu" name="Recette" sequence="0">
+            <!-- un menu dans la barre de navigation de l'application -->
+            <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" sequence="0"/>
+            <!-- Affiche les ordres de recette pour la gestion des revenus -->
+            <menuitem id="nature_recette_menu" name="Nature Recette" action="nature_recette_model_action" sequence="1"/>
+            <menuitem id="debiteur_menu" name="Debiteurs" action="debiteur_model_action" sequence="2"/>
+            <menuitem id="compte_menu" name="Compte" action="compte_model_action" sequence="3"/>
+        </menuitem>
     </menuitem>
 
     <menuitem id="gestion_morasse" name="Morasse" parent="finance.gestion_fn_menu" sequence="1"/>
@@ -9,12 +18,12 @@
     <menuitem id="gestion_payment_menu" name="Gestion Payments" parent="gestion_fn_menu" sequence="3"/>
     <menuitem id="gestion_prod_serv_menu" name="Biens et Services " parent="gestion_fn_menu" sequence="4"/>
 
-    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="options_menu"
+    <menuitem id="ordre_recette_menu" name="Ordre Recette" action="ordre_recette_model_action" parent="recette_menu"
               sequence="0"/>
-    <menuitem id="nature_recette_menu" name="Nature Recette" action="nature_recette_model_action" parent="options_menu"
+    <menuitem id="nature_recette_menu" name="Nature Recette" action="nature_recette_model_action" parent="recette_menu"
               sequence="1"/>
-    <menuitem id="debiteur_menu" name="Debiteurs" action="debiteur_model_action" parent="options_menu" sequence="2"/>
-    <menuitem id="compte_menu" name="Compte" action="compte_model_action" parent="options_menu" sequence="3"/>
+    <menuitem id="debiteur_menu" name="Debiteurs" action="debiteur_model_action" parent="recette_menu" sequence="2"/>
+    <menuitem id="compte_menu" name="Compte" action="compte_model_action" parent="recette_menu" sequence="3"/>
 
 
     <menuitem id="ligne_menu_action" name="Lignes" parent="gestion_ligne_menu" action="ligne_action" sequence="0"/>
@@ -23,8 +32,8 @@
     <menuitem id="article_menu_action" name="Articles" parent="gestion_ligne_menu" action="action_article"
               sequence="2"/>
 
-<!--    <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement"-->
-<!--              sequence="0"/>-->
+    <!--    <menuitem id="engagement_menu_action" name="Engagements" parent="gestion_payment_menu" action="action_engagement"-->
+    <!--              sequence="0"/>-->
     <menuitem id="bon_commande_menu_action" name="Bon Commandes" parent="gestion_payment_menu"
               action="finance.bon_commande_model_action"
               sequence="1"/>
@@ -34,13 +43,14 @@
     <menuitem name="Produits" id="produit_menu_action" parent="finance.gestion_prod_serv_menu"
               action="produit_act_window"
               sequence="0"/>
-<!--    <menuitem name="Services" id="service_menu_action" parent="finance.gestion_prod_serv_menu"-->
-<!--              action="service_act_window" sequence="1"/>-->
+    <!--    <menuitem name="Services" id="service_menu_action" parent="finance.gestion_prod_serv_menu"-->
+    <!--              action="service_act_window" sequence="1"/>-->
     <menuitem id="fournisseur_menu_action" name="Fournisseurs" parent="gestion_prod_serv_menu"
               action="finance.fournisseur_act_window" sequence="2"/>
     <menuitem name="Morasse Détaillée" id="morasse_detaillee_menu_action" parent="finance.gestion_morasse"
               action="finance.morasse_detaillee_act_window" sequence="0"/>
-    <menuitem name="Morasse" id="morasse_menu_action" parent="finance.gestion_morasse" action="morasse_act_window" sequence="1"/>
+    <menuitem name="Morasse" id="morasse_menu_action" parent="finance.gestion_morasse" action="morasse_act_window"
+              sequence="1"/>
 
 
 </odoo>

@@ -6,7 +6,6 @@ class Ligne(models.Model):
     _description = 'Ligne Description'
     _rec_name = 'display_name'
 
-
     id = fields.Integer(primary_key=True)
     code = fields.Char(required=True, index=True)
     label = fields.Char(required=True)
@@ -23,7 +22,8 @@ class Ligne(models.Model):
     @api.depends('paragraph_id.article_id.code')
     def _get_article_code(self):
         for ligne in self:
-            ligne.article_code = ligne.paragraph_id.article_id.code if ligne.paragraph_id and ligne.paragraph_id.article_id else ''
+            ligne.article_code = ligne.paragraph_id.article_id.code \
+                if ligne.paragraph_id and ligne.paragraph_id.article_id else ''
 
     @api.depends('paragraph_id.code')
     def _get_paragraph_code(self):

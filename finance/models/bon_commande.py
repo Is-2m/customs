@@ -6,7 +6,9 @@ class BonCommande(models.Model):
     _name = 'finance.bon.commande'
     _description = 'Description'
     _inherit = "finance.engagement"
-
+    _sql_constraints = [
+        ('unique_bc_code', 'unique(code)', 'Le code de bon de commande doit être unique!')
+    ]
     # ------------------------------------- Relations -------------------------------------------
 
     order_payment_ids = fields.One2many('finance.ordre_payment', 'bon_com_id')

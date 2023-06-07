@@ -12,7 +12,6 @@ class Compte(models.Model):
     # -----------------------------------Relations-----------------------------------------------
     order_recette_ids = fields.One2many('finance.ordre.recette', 'compte_id', string='Ordres Recette', required=False, )
     fournisseur_id = fields.Many2one("finance.fournisseur", string="Fournisseur")
-    payment_ids = fields.One2many("finance.payment", 'compte_id', string="Payments")
     # --------------------------------------------------------------------------------------------
     display_name = fields.Char(string="Compte", compute='_get_account_name', readonly=True)
 

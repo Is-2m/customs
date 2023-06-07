@@ -5,6 +5,11 @@ from num2words import num2words
 class OrdreRecette(models.Model):
     _name = "finance.ordre.recette"
     _description = "Ordre Recette Enregistrement"
+    _sql_constraints = [
+        ('check_year', 'CHECK (year >= 1900 AND year <= 2300)',
+         'l\'année doit se situer entre 1900 et 2300 !!'),
+        ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas être négatif.'),
+    ]
 
     # ------------------------------------ Relations --------------------------------
     nature_id = fields.Many2one('finance.ligne.recette', 'Nature Recette', required=True)
@@ -14,13 +19,13 @@ class OrdreRecette(models.Model):
 
     # ------------------------------------- Fields ----------------------------------
 
-    facturation = fields.Char(string="Facturation n")
+    facturation = fields.Char(string="Facturation N°")
     description = fields.Char(string="Explication")
-    marche = fields.Char(string="Marche n")
-    contrat = fields.Char(string="Contract n")
-    decision = fields.Char(string="Decision n")
-    ac_banque = fields.Char(string="A.C Bangue n")
-    convention = fields.Char(string="Convention n")
+    marche = fields.Char(string="Marche N°")
+    contrat = fields.Char(string="Contract N°")
+    decision = fields.Char(string="Decision N°")
+    ac_banque = fields.Char(string="A.C Bangue N°")
+    convention = fields.Char(string="Convention N°")
     year = fields.Integer(string="Annee", default=lambda self: fields.Datetime.today().year, required=True)
     montant_chiffre = fields.Float(string="Montant Chiffre", required=True)
     type = fields.Selection([("subvention d'exploitation", "Subvention d'exploitation"),
@@ -32,12 +37,6 @@ class OrdreRecette(models.Model):
 
     formated_year = fields.Char(compute='_year_withou_comma', string="Annee", store=False)
 
-    # ---------------------------SQL Constraints----------------------------------------
-    _sql_constraints = [
-        ('check_my_integer_field_range', 'CHECK (year >= 1900 AND year <= 2300)',
-         'My Integer Field must be between 1900 and 2300!'),
-        ('check_montant', 'CHECK( montant_chiffre >= 0)', 'Le montant ne peut pas etre negatif.'),
-    ]
 
     # ------------------------------Api.Dependes-------------------------------------
     @api.depends('montant_chiffre')

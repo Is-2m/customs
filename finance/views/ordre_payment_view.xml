@@ -13,13 +13,11 @@
                                 <field name="code"/>
                                 <field name="date"/>
                                 <field name="facture"/>
-
                             </group>
                             <group>
                                 <field name="bon_com_id"/>
                                 <field name="montant"/>
                             </group>
-
                             <notebook>
                                 <page string="Pieces Jointes">
                                     <field name="piece_jointe_ids" mode="tree">
